@@ -1,6 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("../images/students.jpg");
     background-repeat: no-repeat;
     height: 100%;
     background-size: cover;
 }
+
+h2 {
+    text-align: left;
+}
+
+.signin-text {
+    display: flex;
+}
+
+.input-field {
+    display: flex;
+}
+
+.submit-button {
+    /* display: flex; */
+    /* box-sizing: border-box; */
+    /* height: inherit; */
+    float: right;
+    /* margin-bottom: 16px; */
+}
+
+
+
+form.search {
+  overflow: auto;
+  margin-bottom: 10px;
+  width: 100%;
+  display: inline-block;
+}
+
+form.search button[type="submit"] {
+  /* margin-top: 10px; */
+  /* display: flex; */
+  float: right;
+}
+
+.form-group {
+    /* display: flex; */
+    /* margin-top: 20px !important; */
+    width: 100%;
+}
+
+.box {
+    background-color: white;
+}
+

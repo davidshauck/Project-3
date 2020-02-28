@@ -6,10 +6,10 @@ function studentCard(props) {
   return (
     <div>
       <div className="results-box">
-          <div className="col-4 image">
+          <div className="col-3 image">
           <img src={props.photo} alt="..." className="img-thumbnail"></img>
           </div>
-          <div className="col-8 text">
+          <div className="col-9 text">
               <div className="name">{props.first} {props.last}</div>
               <div className="interests">Need help in: {props.interests}</div>
               <div className="level">Level: {props.level}</div>

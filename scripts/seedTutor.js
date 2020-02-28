@@ -30,12 +30,12 @@ const tutorSeed = [
     email: "justin@justin.com",
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMKKNMWAW-aed8cd16208f-512",
     expertise: [
-      "Javascript",
-      "React",
-      "Angular",
+      "Mongo",
+      "SQL",
+      "Node.js",
     ],
     bio:
-      "If anyone would like to learn about xxxxx, come see me.",
+      "If anyone would like to learn about database architecture, come see me.",
     rating: 4.8,
     date: new Date(Date.now())
   },
@@ -45,9 +45,8 @@ const tutorSeed = [
     email: "dan@dan.com",
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMYD1375K-526a14ab8189-512",
     expertise: [
-      "Javascript",
-      "React",
-      "Angular",
+      "Ruby",
+      "React"
     ],
     bio:
       "I'm the Jacob deGrom of coding.",
@@ -82,3 +81,21 @@ db.Tutor
     console.error(err);
     process.exit(1);
   });
+
+  db.tutors.insertOne(
+    {
+      first: "Jim",
+      last: "Dhima",
+      email: "jim@jim.com",
+      photo: "https://ca.slack-edge.com/TMU2T4ECF-UN08XVAMD-91d7f7c5aa77-512",
+      expertise: [
+        "Javascript",
+        "React",
+        "Angular",
+      ],
+      bio:
+        "I've been coding since I was in diapers",
+      rating: 2.4,
+      date: new Date(Date.now())
+    }
+    )

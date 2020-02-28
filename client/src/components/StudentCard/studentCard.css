@@ -8,13 +8,24 @@
     display: inline-block;
 }
 
-
-
 .results-box {
-    margin-top: 40px;
+    margin-top: 0px;
+    padding: 0px;
 }
 
 p {
     font-size: 12px;
     line-height: 14px;
+}
+
+.name {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.interests, .goals {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-size: 13px;
+    width: 100%;
 }

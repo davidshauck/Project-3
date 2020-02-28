@@ -1,8 +1,8 @@
 .jumboHome { 
-    height: 300px;
+    height: 260px;
     width: 400px;
     clear: both;
-    padding-top: 50px;
+    padding-top: 30px;
     margin: 10% 0 0 10%;
     text-align: center;
     background-color: white;
@@ -19,5 +19,17 @@
 
   h2 {
       font-size: 30px;
-      font-family: 'Arial Narrow', sans-serif;
-  }
+      font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
+    }
+
+.search {
+    margin-top: 0px;
+}
+
+.form-control {
+    margin-right: 0px;
+}
+
+.main-header {
+    margin-bottom: 30px;
+}
