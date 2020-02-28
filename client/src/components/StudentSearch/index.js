@@ -62,15 +62,6 @@ function StudentSearch(props) {
 
     </div>
 
-    
-
-
-
-
-
-
-
-
 
   </div>
   );

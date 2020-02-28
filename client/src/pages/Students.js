@@ -14,7 +14,8 @@ import TutorCard from "../components/TutorCard";
 class Students extends Component {
   state = {
     tutors: [],
-    title: "Find a tutor in..."
+    title: "Find a tutor in...",
+    listTitle: "Available tutors"
   };
 
   componentDidMount() {
@@ -59,7 +60,7 @@ class Students extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Container fluid>
           <Row>
             <Col size="md-6">
@@ -69,9 +70,10 @@ class Students extends Component {
 
             </Col>
             <Col size="md-6">
-              <h2>Available tutors</h2>
               {this.state.tutors.length ? (
+
                 <List>
+                  <h2>Available tutors</h2>
                   {this.state.tutors.map(tutor => (
                     <ListItem key={tutor._id}>
                       <Link to={"/tutors/" + tutor._id}>
@@ -81,8 +83,7 @@ class Students extends Component {
                           photo={tutor.photo}
                           expertise={tutor.expertise}
                           bio={tutor.bio}
-                          rating={tutor.rating}
-                        
+                          rating={tutor.rating}           
                         />
                       </Link>
 

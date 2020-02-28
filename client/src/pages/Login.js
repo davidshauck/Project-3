@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -10,14 +9,7 @@ import Nav from "../components/Nav"
 import "./style.css";
 
 
-class Home extends Component {
-  state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
-  };
-
+class Login extends Component {
   render() {
     return (
       <div>
@@ -25,7 +17,16 @@ class Home extends Component {
         <Container fluid>
           <Row>
             <Col size="md-12">
-              <Jumbotron />           
+            <div className="jumbotron jumboHome">
+                <h2>Login</h2>
+            <form>
+              <Input name="email" type="email" placeholder="Email address" />
+              <div className="input-field"><Input name="password" type="password" placeholder="Password" /><FormBtn>Submit</FormBtn></div>
+              {/* <TextArea name="synopsis" placeholder="Synopsis (Optional)" /> */}
+              <div className="signin-text">New to Codehort? <a href="#"> Create an account</a></div>
+            </form>
+            
+     </div>         
             </Col>
           </Row>
         </Container>
@@ -34,4 +35,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Login;

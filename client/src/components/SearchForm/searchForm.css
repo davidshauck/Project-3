@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+form.search {
+  overflow: auto;
+  margin-bottom: 10px;
+  width: 100%;
+  display: inline-block;
+}
+
+form.search button[type="submit"] {
+  /* margin-top: 10px; */
+  /* display: flex; */
+  float: right;
+}
+
+.form-group {
+    display: flex;
+    /* margin-top: 20px; */
+    margin-bottom: 0px;
+}
+
+.input-field {
+    margin-top: 10px;
+}
