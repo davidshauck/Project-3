@@ -15,12 +15,12 @@ form.search button[type="submit"] {
   float: right;
 }
 
-.form-group {
-    display: flex;
+/* .form-group { */
+    /* display: flex; */
     /* margin-top: 20px; */
-    margin-bottom: 0px;
-}
+/* } */
 
 .input-field {
     margin-top: 10px;
+    display: flex;
 }

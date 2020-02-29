@@ -20,4 +20,7 @@ export default {
   getTutors: function() {
     return axios.get("/api/tutors/");
   },
+  getTutor: function(id) {
+    return axios.get("/api/tutors/" + id);
+  },
 };

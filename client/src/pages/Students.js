@@ -15,7 +15,8 @@ class Students extends Component {
   state = {
     tutors: [],
     title: "Find a tutor in...",
-    listTitle: "Available tutors"
+    listTitle: "Available tutors",
+    button: "Contact"
   };
 
   componentDidMount() {
@@ -83,7 +84,8 @@ class Students extends Component {
                           photo={tutor.photo}
                           expertise={tutor.expertise}
                           bio={tutor.bio}
-                          rating={tutor.rating}           
+                          rating={tutor.rating}   
+                          button={this.state.button}        
                         />
                       </Link>
 

@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Students from "./pages/Students";
 import Tutors from "./pages/Tutors";
 import Home from "./pages/Home";
-import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
-import TutorAccount from "./pages/TutorAccount";
+import TutorSignup from "./pages/TutorSignup";
+import TutorDetail from "./pages/TutorDetail";
+
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
           <Route exact path="/students" component={Students} />
           <Route exact path="/tutors" component={Tutors} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/tutoraccount" component={TutorAccount} />
-          {/* <Route exact path="/students/:id" component={Detail} /> */}
+          <Route exact path="/tutorsignup" component={TutorSignup} />
+          <Route exact path="/tutors/:id" component={TutorDetail} />
           <Route component={NoMatch} />
         </Switch>
       </div>
