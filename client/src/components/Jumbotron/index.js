@@ -12,7 +12,8 @@ class Jumbotron extends Home {
     search: "",
     courses: ["angular", "css", "html", "javascript", "jquery", "mongo", "mongoose", "node.js", "SQL", "react", "ruby on rails"],
     results: [],
-    error: ""
+    error: "",
+    button: "Submit"
   };
 
   handleInputChange = event => {
@@ -34,7 +35,7 @@ class Jumbotron extends Home {
   render() {
   return (
     <div className="jumbotron jumboHome">
-        <div class="main-header">
+        <div className="main-header">
           <h2>Welcome to Codehort</h2>
           <p>Building a community of coders</p>
         </div>
@@ -42,6 +43,7 @@ class Jumbotron extends Home {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
             courses={this.state.courses}
+            button={this.state.button}
           />
       <p className="signin-text">Already have an account? <a href="#">Sign in</a></p>
 

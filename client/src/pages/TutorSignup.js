@@ -10,11 +10,28 @@ import StudentSearch from "../components/StudentSearch";
 import AccountInfo from "../components/AccountInfo";
 
 
-class TutorAccount extends Component {
+class TutorSignup extends Component {
 
     state = {
-        title: "Area(s) of expertise"
+        name: "",
+        email: "",
+        password: "",
+        title: "Area(s) of expertise",
+        button: "Submit"
     }
+
+    handleFormSubmit = event => {
+      event.preventDefault();
+      if (this.state.name && this.state.email) {
+        API.saveTutor({
+          name: this.state.name,
+          email: this.state.email,
+          photo: this.state.photo
+        })
+          .then(res => this.loadTutors())
+          .catch(err => console.log(err));
+      }
+    };
 
     render() {
         return (
@@ -26,8 +43,14 @@ class TutorAccount extends Component {
                 <StudentSearch 
                   title={this.state.title}
                 />
-                <TextArea name="bio" placeholder="Summarize your experience" />
-                <FormBtn>Submit</FormBtn>
+                <TextArea 
+                  name="bio" 
+                  placeholder="Let your students know a little about you" 
+                />
+                <FormBtn
+                  button={this.state.button}
+                  onClick={this.handleFormSubmit}
+                />
               </Col>
               <Col size="md-3" />
 
@@ -38,4 +61,4 @@ class TutorAccount extends Component {
       }
 }
 
-export default TutorAccount;
+export default TutorSignup;

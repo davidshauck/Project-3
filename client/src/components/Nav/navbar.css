@@ -1,26 +1,30 @@
-#navbarNav {
+/* #navbarNav {
     text-align: right;
-}
+} */
 
 .navbar {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .navbar-buttons {
-    float: left;
-    text-align: right;
+    float: right;
+    display: flex;
     font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
     font-size: 13px;
+    margin-right: 10px;
 }
 
-.navbar-brand {
-    font-family: "Barlow";
+.navbar-nav {
+    flex-direction: row;
+    float: right;
 }
 
 .signup-button {
     font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
     color: white;
     font-size: 13px;
-    float: right;
+}
 
+li {
+    margin: 0 5px 0 5px;
 }

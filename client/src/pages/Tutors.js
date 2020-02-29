@@ -9,7 +9,8 @@ import StudentCard from "../components/StudentCard";
 class Tutors extends Component {
     state = {
         students: [],
-        title: "Find a student who needs help in..."
+        title: "Find a student who needs help in...",
+        button: "Contact"
       };
     
       componentDidMount() {
@@ -56,17 +57,17 @@ class Tutors extends Component {
             {/* <Nav /> */}
             <Container fluid>
               <Row>
-                <Col size="md-6">
-                  <StudentSearch
+                <Col size="md-3" />
+                  {/* <StudentSearch
                     title={this.state.title}
-                  />
+                  /> */}
                     
     
-                </Col>
+                {/* </Col> */}
                 <Col size="md-6">
-                  <h2>Available tutors</h2>
                   {this.state.students.length ? (
                     <List>
+                      <h2>Available students</h2>
                       {this.state.students.map(student => (
                         <ListItem key={student._id}>
                           <Link to={"/students/" + student._id}>
@@ -76,7 +77,8 @@ class Tutors extends Component {
                               photo={student.photo}
                               interests={student.interests}
                               bio={student.bio}
-                              level={student.level}                            
+                              level={student.level}
+                              button={this.state.button}                            
                             />
                           </Link>
     
@@ -87,6 +89,8 @@ class Tutors extends Component {
                     <h3>No Results to Display</h3>
                   )}
                 </Col>
+                <Col size="md-3" />
+
               </Row>
             </Container>
           </div>

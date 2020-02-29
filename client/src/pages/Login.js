@@ -10,6 +10,10 @@ import "./style.css";
 
 
 class Login extends Component {
+  state = {
+    button: "Submit"
+  }
+
   render() {
     return (
       <div>
@@ -21,7 +25,11 @@ class Login extends Component {
                 <h2>Login</h2>
             <form>
               <Input name="email" type="email" placeholder="Email address" />
-              <div className="input-field"><Input name="password" type="password" placeholder="Password" /><FormBtn>Submit</FormBtn></div>
+              <div className="input-field"><Input name="password" type="password" placeholder="Password" />
+                <FormBtn 
+                button={this.state.button}
+                />
+              </div>
               {/* <TextArea name="synopsis" placeholder="Synopsis (Optional)" /> */}
               <div className="signin-text">New to Codehort? <a href="#"> Create an account</a></div>
             </form>

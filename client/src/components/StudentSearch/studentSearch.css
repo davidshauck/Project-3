@@ -2,15 +2,11 @@
     background-color: white;
     /* width: 400px; */
     height: auto;
-    margin-top: 0px;
     /* margin-left: 10%; */
     padding: 20px;
+    margin: 5px 0 5px 0;
 }
 
 .checkboxes {
     margin-top: 20px;
-}
-
-h2 {
-    text-align: center;
 }
