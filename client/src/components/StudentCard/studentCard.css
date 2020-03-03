@@ -29,3 +29,9 @@ p {
     font-size: 13px;
     width: 100%;
 }
+
+.student-contact-button {
+    display: flex;
+    float: right;
+    margin-bottom: 16px;
+}

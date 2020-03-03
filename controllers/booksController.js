@@ -35,6 +35,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createTutor: function(req, res) {
+    console.log(req.body)
     db.Tutor
       .create(req.body)
       .then(dbModel => res.json(dbModel))

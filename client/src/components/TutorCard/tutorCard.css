@@ -5,12 +5,19 @@
     padding: 0px;
 }
 
+.img-thumbnail {
+    padding: 0px !important;
+    max-width: 110px;
+    text-align: left;
+}
+
 .text {
     display: inline-block;
 }
 
 .results-box {
     margin-top: 0px;
+    /* float: right: */
 }
 
 p {

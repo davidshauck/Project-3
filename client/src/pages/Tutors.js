@@ -3,14 +3,13 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import StudentSearch from "../components/StudentSearch";
+// import StudentSearch from "../components/StudentSearch";
 import StudentCard from "../components/StudentCard";
 
 class Tutors extends Component {
     state = {
         students: [],
         title: "Find a student who needs help in...",
-        button: "Contact"
       };
     
       componentDidMount() {
@@ -57,17 +56,18 @@ class Tutors extends Component {
             {/* <Nav /> */}
             <Container fluid>
               <Row>
-                <Col size="md-3" />
+                <Col size="md-2" />
                   {/* <StudentSearch
                     title={this.state.title}
                   /> */}
                     
     
                 {/* </Col> */}
-                <Col size="md-6">
+                <Col size="md-8">
                   {this.state.students.length ? (
+                    <div className="list-overflow-container">
                     <List>
-                      <h2>Available students</h2>
+                      <h2>Students requesting tutors</h2>
                       {this.state.students.map(student => (
                         <ListItem key={student._id}>
                           <Link to={"/students/" + student._id}>
@@ -78,18 +78,19 @@ class Tutors extends Component {
                               interests={student.interests}
                               bio={student.bio}
                               level={student.level}
-                              button={this.state.button}                            
+                              button={"Send messge"}                            
                             />
                           </Link>
     
                         </ListItem>
                       ))}
                     </List>
+                    </div>
                   ) : (
                     <h3>No Results to Display</h3>
                   )}
                 </Col>
-                <Col size="md-3" />
+                <Col size="md-2" />
 
               </Row>
             </Container>

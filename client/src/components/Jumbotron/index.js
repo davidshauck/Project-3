@@ -1,6 +1,6 @@
 import React from "react";
 import "./jumbotron.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Home from "../../pages/Home";
 import SearchForm from "../../components/SearchForm"
@@ -13,7 +13,6 @@ class Jumbotron extends Home {
     courses: ["angular", "css", "html", "javascript", "jquery", "mongo", "mongoose", "node.js", "SQL", "react", "ruby on rails"],
     results: [],
     error: "",
-    button: "Submit"
   };
 
   handleInputChange = event => {
@@ -43,7 +42,8 @@ class Jumbotron extends Home {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
             courses={this.state.courses}
-            button={this.state.button}
+            button={"Submit"}
+            className={"btn btn-success jumbotron-search-button"}
           />
       <p className="signin-text">Already have an account? <a href="#">Sign in</a></p>
 
