@@ -5,7 +5,7 @@
 form.search {
   overflow: auto;
   margin-bottom: 10px;
-  width: 100%;
+  /* width: 100%; */
   display: inline-block;
 }
 
@@ -20,7 +20,8 @@ form.search button[type="submit"] {
     /* margin-top: 20px; */
 /* } */
 
-.input-field {
-    margin-top: 10px;
+.jumbotron-input-field {
+    /* margin-top: 10px; */
     display: flex;
+    border-radius: 20px 0 0 20px;
 }

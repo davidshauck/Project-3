@@ -11,17 +11,17 @@ function StudentCard(props) {
           <div className="col-3 image">
           <img src={props.photo} alt="..." className="img-thumbnail"></img>
           </div>
-          <div className="col-9 text">
+          <div className="col-8 text">
               <div className="name">{props.first} {props.last} 
-              <FormBtn 
-              button={props.button}
-              />
               </div>
               <div className="interests">Need help in: {props.interests}</div>
               <div className="level">Level: {props.level}</div>
-              <div className="goals">Goals: {props.bio}</div>
-              
+              <div className="goals">Goals: {props.bio}</div>     
           </div>
+          <FormBtn 
+            button={props.button}
+            className={"btn btn-success student-contact-button"}
+          />
       </div>
     </div>
   );

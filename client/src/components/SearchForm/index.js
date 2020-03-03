@@ -16,7 +16,7 @@ function SearchForm(props) {
           name="course"
           list="courses"
           type="text"
-          className="form-control"
+          className={"form-control jumbotron-input-field"}
           placeholder="Find a tutor in...."
           id="course"
         />
@@ -28,6 +28,7 @@ function SearchForm(props) {
         <Link to="/students">
         <FormBtn 
           button={props.button}
+          className={props.className}
         />
         </Link>
         {/* <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
