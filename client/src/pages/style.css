@@ -39,12 +39,22 @@ form.search button[type="submit"] {
     /* display: flex; */
 }
 
+.form-control {
+    display: inline-block !important;
+    /* margin: 10px; */
+}
+
 .box {
     background-color: white;
+    padding: 20px;
+}
+
+.register-box {
+    margin: 0 10% 0 10%;
 }
 
 .review-button {
-    width: 110px;
+    width: 200px;
     Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
     font-size: 11px;
     margin-top: 5px;
@@ -59,15 +69,21 @@ form.search button[type="submit"] {
 }
 
 .login-password-field {
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 20px !important;
 }
 
 .login-email-field {
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px !important;
 }
 
 .login-submit-button {
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 20px 20px 0 !important;
 }
 
+.dropdown-toggle {
+    height: 40px;
+}
 
+.signup-boxes {
+    margin: 10px;
+}

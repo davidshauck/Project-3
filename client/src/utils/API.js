@@ -27,4 +27,7 @@ export default {
   getTutor: function(id) {
     return axios.get("/api/tutors/" + id);
   },
+  saveReview: function(tutorData) {
+    return axios.put("/api/tutors", tutorData);
+  },
 };

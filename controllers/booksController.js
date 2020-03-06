@@ -1,4 +1,5 @@
 const db = require("../models");
+const mongoose = require("mongoose");
 
 // Defining methods for the booksController
 module.exports = {
@@ -23,8 +24,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findTutorById: function(req, res) {
+    console.log("RES ", req.query);
     db.Tutor
       .findById(req.params.id)
+      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -47,11 +50,20 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  updateTutor: function(req, res) {
+  saveReview: function(req, res) {
+   console.log(req.body)
     db.Tutor
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+   .update(
+      { _id: mongoose.Types.ObjectId(req.body.id)},
+      { $push: { reviews: req.body } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
+
+
+      // .findOneAndUpdate({ _id: req.params.id }, req.body)
+      // .then(dbModel => res.json(dbModel))
+      // .catch(err => res.status(422).json(err));
   },
   removeStudent: function(req, res) {
     db.Student
@@ -66,5 +78,5 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
 };

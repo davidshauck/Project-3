@@ -8,6 +8,22 @@
     background-color: white;
   }
 
+h2 {
+    font-size: 30px !important;
+    font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+.subhead {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+  .jumbotron {
+      padding: 25px !important;
+  }
+
   .home-buttons {
       margin: 20px 8px 10px 8px;
   }
@@ -18,12 +34,7 @@
       display: flex;
   }
 
-  h2 {
-      font-size: 24px;
-      font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+
 
 .search {
     margin-top: 0px;
@@ -43,9 +54,9 @@
 }
 
 .jumbotron-search-button {
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 20px 20px 0 !important;
 }
 
 .jumbotron-input-field {
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 20px !important;
 }

@@ -13,6 +13,10 @@ import TutorCard from "../components/TutorCard";
 
 class Students extends Component {
   state = {
+    first: "",
+    last: "",
+    email: "",
+    bio: "",
     tutors: [],
     title: "Find a tutor in...",
     listTitle: "Available tutors",
@@ -20,10 +24,10 @@ class Students extends Component {
   };
 
   componentDidMount() {
-    this.loadStudents(); // what is this in this case? why not just loadbooks()?
+    this.loadTutors(); // what is this in this case? why not just loadbooks()?
   }
 
-  loadStudents = () => {
+  loadTutors = () => {
     API.getTutors()
       .then(res =>{
           console.log(res)
@@ -51,6 +55,8 @@ class Students extends Component {
       API.saveStudent({
         first: this.state.first,
         last: this.state.last,
+        email: this.state.email,
+        password: this.state.password,
         bio: this.state.bio
       })
         .then(res => this.loadStudents())
@@ -64,13 +70,13 @@ class Students extends Component {
         {/* <Nav /> */}
         <Container fluid>
           <Row>
-            <Col size="md-6">
+            <Col size="md-5">
               <StudentSearch
                 title={this.state.title}
                   />
 
             </Col>
-            <Col size="md-6">
+            <Col size="md-7">
               {this.state.tutors.length ? (
 
                 <List>
@@ -82,7 +88,7 @@ class Students extends Component {
                           first={tutor.first}
                           last={tutor.last}
                           photo={tutor.photo}
-                          expertise={tutor.expertise}
+                          expertise={tutor.expertise.join(", ")}
                           bio={tutor.bio}
                           rating={tutor.rating}   
                           button={this.state.button}        

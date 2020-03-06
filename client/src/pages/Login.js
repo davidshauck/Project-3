@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
-import API from "../utils/API";
-// import { Link } from "react-router-dom";
+// import API from "../utils/API";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
+import { FormBtn } from "../components/Form";
 // import Nav from "../components/Nav"
 import "./style.css";
 
@@ -53,7 +53,7 @@ class Login extends Component {
             <div className="jumbotron jumboHome">
                 <h2>Login</h2>
                 <form className="search">
-      <div className="form-group">
+              <div className="form-group">
               <input 
                 name="email" 
                 type="email" 
@@ -79,7 +79,7 @@ class Login extends Component {
               />
               </div>
             </form>
-              <div className="signin-text">New to Codehort? <a href="#"> Create an account</a></div>
+              <div className="signin-text">New to Codehort? <Link to="/studentsignup"> Create an account</Link></div>
             
             </div>         
             </Col>

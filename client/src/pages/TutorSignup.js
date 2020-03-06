@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
-// import { Link, withRouter } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
 import { TextArea, FormBtn } from "../components/Form";
-import "./style.css";
 import StudentSearch from "../components/StudentSearch";
 import AccountInfo from "../components/AccountInfo";
-
+import CheckboxTest from "../components/CheckboxTest";
+import "./style.css";
 
 class TutorSignup extends Component {
 
@@ -19,7 +16,6 @@ class TutorSignup extends Component {
       password: "",
       photo: "",
       title: "Area(s) of expertise",
-      button: "Submit"
     }
 
     handleFormSubmit = event => {
@@ -59,12 +55,13 @@ class TutorSignup extends Component {
                 <StudentSearch 
                   title={this.state.title}
                 />
+                <CheckboxTest />
                 <TextArea 
                   name="bio" 
                   placeholder="Let your students know a little about you" 
                 />
                 <FormBtn
-                  button={this.state.button}
+                  button={"Submit"}
                   onClick={e => this.handleFormSubmit(e)}
                 />
                               </div>
