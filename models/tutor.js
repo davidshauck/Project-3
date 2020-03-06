@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt-nodejs");
 
 const tutorSchema = new Schema({
   first: { type: String, required: true },
@@ -10,6 +11,7 @@ const tutorSchema = new Schema({
   status: { type: Number },
   expertise: { type: Array },
   bio: { type: String },
+  reviews: { type: Array },
   rating: { type: Number },
   date: { type: Date, default: Date.now }
 });

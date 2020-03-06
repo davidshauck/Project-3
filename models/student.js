@@ -1,18 +1,29 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt-nodejs");
 
 const studentSchema = new Schema({
   first: { type: String, required: true },
   last: { type: String, required: true },
-  email: { type: String, required: true, unique: true},
+  email: { type: String, required: true },
   password: { type: String, required: true },
   photo: { type: String },
-  status: { type: Number, required: true },
-  interests: { type: Array, required: true },
-  bio: { type: String, rquired: true },
-  reviews: { type: String },
+  status: { type: Number },
+  level: { type: String },
+  interests: { type: Array },
+  bio: { type: String },
   date: { type: Date, default: Date.now }
 });
+
+
+// studentSchema.methods = {
+// 	checkPassword: function (inputPassword) {
+// 		return bcrypt.compareSync(inputPassword, this.password)
+// 	},
+// 	hashPassword: plainTextPassword => {
+// 		return bcrypt.hashSync(plainTextPassword, 10)
+// 	}
+// }
 
 // Execute before each user.save() call
 studentSchema.pre("save", function(callback) {

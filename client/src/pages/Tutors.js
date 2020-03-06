@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-// import StudentSearch from "../components/StudentSearch";
 import StudentCard from "../components/StudentCard";
 
 class Tutors extends Component {
@@ -70,7 +68,7 @@ class Tutors extends Component {
                       <h2>Students requesting tutors</h2>
                       {this.state.students.map(student => (
                         <ListItem key={student._id}>
-                          <Link to={"/students/" + student._id}>
+                          {/* <Link to={"/students/" + student._id}> */}
                             <StudentCard 
                               first={student.first}
                               last={student.last}
@@ -80,7 +78,7 @@ class Tutors extends Component {
                               level={student.level}
                               button={"Send messge"}                            
                             />
-                          </Link>
+                          {/* </Link> */}
     
                         </ListItem>
                       ))}

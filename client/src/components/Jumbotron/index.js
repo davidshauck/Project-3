@@ -36,7 +36,7 @@ class Jumbotron extends Home {
     <div className="jumbotron jumboHome">
         <div className="main-header">
           <h2>Welcome to Codehort</h2>
-          <p>Building a community of coders</p>
+          <p className="subhead">Building a community of coders</p>
         </div>
         <SearchForm
             handleFormSubmit={this.handleFormSubmit}
