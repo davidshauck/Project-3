@@ -5,6 +5,10 @@ import { List, ListItem } from "../components/List";
 import StudentCard from "../components/StudentCard";
 
 class Tutors extends Component {
+    constructor(props) {
+      super(props)
+      console.log(props)
+    }
     state = {
         students: [],
         title: "Find a student who needs help in...",
@@ -49,6 +53,8 @@ class Tutors extends Component {
       // };
     
       render() {
+        let results = (this.props.location.state || {}).results ?  this.props.location.state.results : this.state.students
+
         return (
           <div>
             {/* <Nav /> */}
@@ -66,14 +72,14 @@ class Tutors extends Component {
                     <div className="list-overflow-container">
                     <List>
                       <h2>Students requesting tutors</h2>
-                      {this.state.students.map(student => (
+                      {results.map(student => (
                         <ListItem key={student._id}>
                           {/* <Link to={"/students/" + student._id}> */}
                             <StudentCard 
                               first={student.first}
                               last={student.last}
                               photo={student.photo}
-                              interests={student.interests}
+                              interests={student.interests.join(", ")}
                               bio={student.bio}
                               level={student.level}
                               button={"Send messge"}                            

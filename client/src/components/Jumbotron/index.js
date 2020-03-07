@@ -4,35 +4,39 @@ import "./jumbotron.css";
 import API from "../../utils/API";
 import Home from "../../pages/Home";
 import SearchForm from "../../components/SearchForm"
+import { Redirect } from "react-router-dom";
 
 
 
 class Jumbotron extends Home {
   state = {
     search: "",
-    courses: ["angular", "css", "html", "javascript", "jquery", "mongo", "mongoose", "node.js", "SQL", "react", "ruby on rails"],
+    courses: ["Angular", "Css", "Html", "Javascript", "Jquery", "Mongo", "Mongoose", "Node.js", "SQL", "React", "Ruby on Rails"],
     results: [],
-    error: "",
+    error: true,
   };
 
   handleInputChange = event => {
-    this.setState({ search: event.target.value });
+    this.setState({...this.state, search: event.target.value });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.search)
+    console.log("SEARCH", this.state.search)
     API.getTutors(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        this.setState({ results: res.data.message, error: "" });
+        this.setState({ ...this.state,results: res.data, error: false });
       })
-      .catch(err => this.setState({ error: err.message }));
+      .catch(err => this.setState({ ...this.state,error: err.message }));
   };
 
   render() {
+    if(!this.state.error){
+      return(<Redirect push to={{pathname: "/students", state: this.state}}/>)
+    }
   return (
     <div className="jumbotron jumboHome">
         <div className="main-header">
@@ -45,8 +49,10 @@ class Jumbotron extends Home {
             courses={this.state.courses}
             button={"Submit"}
             className={"btn btn-success jumbotron-search-button"}
+            href="/students"
+            
           />
-      <a href="/login"><span class="spacer">Sign in</span></a>|<span class="spacer"><a href="/student">Create account</a></span>
+      <a href="/login"><span className="spacer">Sign in</span></a>|<span className="spacer"><a href="/student">Create account</a></span>
 
     </div>
   );

@@ -12,6 +12,11 @@ import TutorCard from "../components/TutorCard";
 
 
 class Students extends Component {
+  constructor(props) {
+    super(props)
+    console.log(props)
+  }
+
   state = {
     first: "",
     last: "",
@@ -65,6 +70,7 @@ class Students extends Component {
   };
 
   render() {
+    let results = (this.props.location.state || {}).results ?  this.props.location.state.results : this.state.tutors
     return (
       <div>
         {/* <Nav /> */}
@@ -81,7 +87,7 @@ class Students extends Component {
 
                 <List>
                   <h2>AVAILABLE TUTORS</h2>
-                  {this.state.tutors.map(tutor => (
+                  {results.map(tutor => (
                     <ListItem key={tutor._id}>
                       <Link to={"/tutors/" + tutor._id}>
                         <TutorCard 
