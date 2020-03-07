@@ -30,4 +30,12 @@ export default {
   saveReview: function(tutorData) {
     return axios.put("/api/tutors", tutorData);
   },
+  // Searches the  books according to the search criteria given in the form
+  getNewVideos: function(req) {
+    return axios.get(
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" +
+        req +
+        "&key=AIzaSyDyLzwyfpgQMxCuuUK1VXdvTc34-wMzGi0"
+    );
+  }
 };

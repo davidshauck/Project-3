@@ -1,6 +1,12 @@
 import React from "react";
 import "./style.css";
 
+// video compoonents here
+export * from "./List";
+export * from "./ListItem";
+
+//end video compoonents here
+
 // This file exports both the List and ListItem components
 
 export function List({ children }) {
