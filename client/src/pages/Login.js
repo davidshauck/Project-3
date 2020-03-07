@@ -79,7 +79,7 @@ class Login extends Component {
               />
               </div>
             </form>
-              <div className="signin-text">New to Codehort? <Link to="/studentsignup"> Create an account</Link></div>
+              <div className="signin-text">New to Codehort? <Link to="/studentsignup"><span class="spacer">Create an account</span></Link></div>
             
             </div>         
             </Col>

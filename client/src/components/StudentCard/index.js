@@ -11,7 +11,7 @@ function StudentCard(props) {
           <div className="col-3 image">
           <img src={props.photo} alt="..." className="img-thumbnail"></img>
           </div>
-          <div className="col-8 text">
+          <div className="col-7 text">
               <div className="name">{props.first} {props.last} 
               </div>
               <div className="interests">Need help in: {props.interests}</div>
@@ -20,9 +20,10 @@ function StudentCard(props) {
           </div>
           <FormBtn 
             button={props.button}
-            className={"btn btn-success student-contact-button"}
+            className={"btn btn-secondary student-contact-button"}
           />
       </div>
+      <hr />
     </div>
   );
 }

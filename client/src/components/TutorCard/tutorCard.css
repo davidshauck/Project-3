@@ -5,6 +5,16 @@
     padding: 0px !important;
 }
 
+.tutor-name {
+    font-size: 22px;
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+}
+
+.expertise {
+    font-size: 14px;
+}
+
 .img-thumbnail {
     padding: 0px !important;
     max-width: 110px;
@@ -31,5 +41,17 @@ p {
 
 .list-group {
     padding: 0px;
+}
+
+.stars-container {
+    width: 150px;
+    margin: 10px 0 20px 0;
+}
+
+.rating {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    vertical-align: center;
 }
 

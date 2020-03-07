@@ -2,10 +2,12 @@ import React from "react";
 import { FormBtn } from "../Form";
 import "./searchForm.css";
 import { Link } from "react-router-dom";
+// import { useNavigation } from 'react-navigation';
 
 
-// Using the datalist element we can create autofill suggestions based on the props.breeds array
 function SearchForm(props) {
+  // const navigation = useNavigation();
+
   return (
     <form className="search">
       <div className="form-group input-field">
@@ -29,6 +31,9 @@ function SearchForm(props) {
         <FormBtn 
           button={props.button}
           className={props.className}
+          value={props.search}
+          onClick={props.handleFormSubmit}
+          // onPress={() => navigation.navigate('Students')}
         />
         </Link>
         {/* <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">

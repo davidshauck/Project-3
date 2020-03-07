@@ -120,30 +120,34 @@ class CheckboxTest extends Component {
             name="first" 
             type="text"
             placeholder="First Name" 
-            inputClass="signup-fields"
+            inputClass="col-5 signup-boxes"
             onChange={e => this.handleInputChange(e)}
         />
         <Input 
             name="last" 
             type="text"
+            inputClass="col-5 signup-boxes"
             placeholder="Last Name" 
             onChange={e => this.handleInputChange(e)}
         />
         <Input 
             name="email" 
             type="email" 
+            inputClass="col-5 signup-boxes"
             placeholder="Email (required)" 
             onChange={e => this.handleInputChange(e)}
         />
         <Input 
             name="password" 
             type="password" 
+            inputClass="col-5 signup-boxes"
             placeholder="Password (required)" 
             onChange={e => this.handleInputChange(e)}
         />
         <Input 
             name="photo" 
             type="text" 
+            inputClass="col-5 signup-boxes"
             placeholder="Photo url" 
             onChange={e => this.handleInputChange(e)}
         />
@@ -153,10 +157,10 @@ class CheckboxTest extends Component {
               {this.createCheckboxes()}
 
               <div className="mt-2">
-            <textarea className="form-control" rows="10" name="bio" onChange={e => this.handleInputChange(e)} placeholder="Add any additional details here" />
+            <textarea className="form-control" rows="7" name="bio" onChange={e => this.handleInputChange(e)} placeholder="Add any additional details here" />
             <div>
-                <button type="submit" className="btn btn-primary">
-                    Save
+                <button type="submit" className="btn btn-secondary register-submit">
+                    Submit
                 </button>
             </div>
         </div>

@@ -17,10 +17,11 @@ class TutorDetail extends Component {
     tutor: {},
     button: "Contact",
     reviewsOn: -1,
-    activeStudent: "Dave H.",
+    activeStudent: "Rodney J.",
     reviewTitle: "",
     reviewBody: "",
     reviews: "",
+    rating: "",
     stars: [
       BlankStar,
       BlankStar,
@@ -40,7 +41,8 @@ starClick = (event) => {
         tempStars.push(BlankStar)
     }  
     this.setState({
-        stars: tempStars
+        stars: tempStars,
+        rating: id
     })
 }
 
@@ -48,7 +50,7 @@ starClick = (event) => {
       API.getTutor(this.props.match.params.id)
       .then(res => this.setState({ 
         tutor: res.data, 
-        reviews: res.data.reviews, 
+        reviews: res.data.reviews 
       }))
       .catch(err => console.log(err));
       console.log("STATE", this.state)
@@ -63,12 +65,6 @@ starClick = (event) => {
     });
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
-
   submitReview = event => {
     event.preventDefault();
     let newReview = {
@@ -76,6 +72,7 @@ starClick = (event) => {
       name: this.state.activeStudent,
       title: this.state.reviewTitle,
       review: this.state.reviewBody,
+      rating: this.state.rating,
       date: Date(Date.now())
     }
     API.saveReview(newReview)
@@ -91,6 +88,15 @@ starClick = (event) => {
         reviewsOn: this.state.reviewsOn *= -1 
       }))
       .catch(err => console.log(err));
+}
+
+sortReviews = reviews => {
+  // Sort array by date in DESCENDING order
+reviews.sort(function (a, b) {
+  if (a.date > b.date) return -1;
+  if (a.date < b.date) return 1;
+  return 0;
+});
 }
 
 
@@ -112,17 +118,19 @@ starClick = (event) => {
           <Col size="md-10">
               {/* <List> */}
               <div className="box list-overflow-container" style={{margin: "0 10% 0 10%"}}>
+                
             <TutorCard 
                first={this.state.tutor.first}
                last={this.state.tutor.last}
                photo={this.state.tutor.photo}
                expertise={this.state.tutor.expertise}
                bio={this.state.tutor.bio}
-               button={this.state.button}               
+               button={this.state.button} 
+               reviews={this.state.tutor.reviews}              
             />
             <FormBtn 
               button={"Write a review"}
-              className={"btn btn-danger review-button"}
+              className={"btn btn-success review-button col-3"}
               onClick={e => this.toggleReviews(e)}
             />
             {this.state.reviewsOn > 0 ? (
@@ -146,14 +154,14 @@ starClick = (event) => {
               <StarRatings 
                 className="stars" 
                 onClick={(e) => this.starClick(e)} 
-                // src={this.state.star}
                 stars={this.state.stars}
               
               />
               <FormBtn 
                 button={"Submit"}
-                className={"btn btn-danger review-button"}
+                className={"btn btn-danger review-submit-button"}
                 onClick={(e) => this.submitReview(e)}
+                onclick={(e) => this.window.location.reload()}
               />
               
               </div>
@@ -163,8 +171,9 @@ starClick = (event) => {
 
             <ReviewCard 
               reviews={this.state.reviews}
+              first={this.state.tutor.first}
             />
-             <Link to="/">← Back to search</Link>
+             {/* <Link to="/">← Back to search</Link> */}
 
 
             </div>
