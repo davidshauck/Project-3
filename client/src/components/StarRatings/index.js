@@ -39,8 +39,7 @@ function StarRatings(props) {
         
         <ul>
             {props.stars.map((star, index) => {
-                // return <img className="stars" key={index+1} id={index+1} onClick={(e) => this.starClick(e)} src={star} />
-                return <img key={index+1} id={index+1} src={star}  {...props} />
+                return <img key={index+1} id={index+1} src={star} {...props} />
 
             })}
         </ul>

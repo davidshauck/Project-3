@@ -3,9 +3,10 @@ import React from "react";
 
 // This file exports the Input, TextArea, and FormBtn components
 
-export function Divider(props) {
+function Image(props) {
   return (
-      <div>-------------------</div>
-      
+      <img src={props.src} />
   );
 }
+
+export default Image;

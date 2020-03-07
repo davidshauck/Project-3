@@ -44,17 +44,11 @@ const tutorSeed = [
       "Mongo",
       "SQL",
       "Node.js",
+      "Mongoose"
     ],
     bio:
-      "If anyone would like to learn about database architecture, come see me.",
-    rating: 4.8,
-    reviews: [
-      {
-      reviewer: "",
-      title: "",
-      review: "",
-      }
-    ],
+      "If anyone wants to learn about database architecture, come see me. I am a Full-Stack Web Development Teacher and DevOps Engineer who is most comfortable with working in teams that have optimism about the future of tech. I love what I do. ",
+    reviews: [],
     date: new Date(Date.now())
   },
   {
@@ -65,19 +59,14 @@ const tutorSeed = [
     password: "222",
     status: 2,
     expertise: [
-      "Ruby",
-      "React"
+      "Ruby on Rails",
+      "React",
+      "Jquery",
+      "Javascript"
     ],
     bio:
-      "I'm the Jacob deGrom of coding.",
-    rating: "4.5",
-    reviews: [
-      {
-      reviewer: "",
-      title: "",
-      review: "",
-      }
-    ],
+      "I'm the Jacob deGrom of coding. Build websites for small businesses primarily utilizing HTML, CSS, React, and Bootstrap. Responsibilities included working with clients to determine web page content, creating, designing, and deploying the webpage, as well as providing follow-up support as needed by clients.",
+    reviews: [],
     date: new Date(Date.now())
   },
   {
@@ -89,19 +78,15 @@ const tutorSeed = [
     status: 2,
     expertise: [
       "Javascript",
-      "React",
-      "Angular",
+      "Jquery",
+      "HTML",
+      "CSS",
+      "Firebase"
     ],
     bio:
       "I am Irving dammit!",
     rating: "5.0",
-    reviews: [
-      {
-      reviewer: "",
-      title: "",
-      review: "",
-      }
-    ],
+    reviews: [],
     date: new Date(Date.now())
   }
 ];
@@ -122,27 +107,23 @@ db.Tutor
 
   db.tutors.insertOne(
     {
-      first: "Jim",
-      last: "Dhima",
-      email: "jim@jim.com",
-      photo: "https://ca.slack-edge.com/TMU2T4ECF-UN08XVAMD-91d7f7c5aa77-512",
-      password: "444",
+      first: "Irving",
+      last: "Angulo",
+      email: "irving@irving.com",
+      photo: "https://ca.slack-edge.com/TMU2T4ECF-UMS1L0BQ9-3df4a04a4703-512",
+      password: "111",
       status: 2,
       expertise: [
         "Javascript",
-        "React",
-        "Angular",
+        "Jquery",
+        "HTML",
+        "CSS",
+        "Firebase"
       ],
       bio:
-        "I've been coding since I was in diapers",
-      rating: 2.4,
-      reviews: [
-        {
-        reviewer: "",
-        title: "",
-        review: "",
-        }
-      ],
+        "Full Stack Web Developer from the Dominican Republic. My background is in music technology, composition, and cello. I have a solid understanding of JavaScript with a strong focus on the MERN stack, and I am also proficient with Max/MSP and C++.",
+      rating: "5.0",
+      reviews: [],
       date: new Date(Date.now())
     }
     )

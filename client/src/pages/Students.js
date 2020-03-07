@@ -80,7 +80,7 @@ class Students extends Component {
               {this.state.tutors.length ? (
 
                 <List>
-                  <h2>Available tutors</h2>
+                  <h2>AVAILABLE TUTORS</h2>
                   {this.state.tutors.map(tutor => (
                     <ListItem key={tutor._id}>
                       <Link to={"/tutors/" + tutor._id}>
@@ -88,8 +88,9 @@ class Students extends Component {
                           first={tutor.first}
                           last={tutor.last}
                           photo={tutor.photo}
-                          expertise={tutor.expertise.join(", ")}
+                          expertise={tutor.expertise}
                           bio={tutor.bio}
+                          reviews={tutor.reviews}
                           rating={tutor.rating}   
                           button={this.state.button}        
                         />

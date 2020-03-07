@@ -9,14 +9,16 @@ body {
     background-size: 1420px;
 }
 
-.submit-button {
+.tutor-contact-button {
     display: inline-flex;
-    /* box-sizing: border-box; */
-    /* height: inherit; */
     float: right;
     margin-bottom: 16px;
-    /* border-radius: 0 20px 20px 0; */
-}
+    font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
+    color: white;
+    font-size: 13px !important;
+    border-radius: 20px 20px 20px 20px !important;
+    padding: 5px 15px 5px 15px !important;
+    }
 
 form.search {
   overflow: auto;
@@ -54,10 +56,22 @@ form.search button[type="submit"] {
 }
 
 .review-button {
-    width: 200px;
+    /* width: 200px; */
     Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     margin-top: 5px;
+    white-space: nowrap;
+    border-radius: 20px 20px 20px 20px !important;
+}
+
+.review-submit-button {
+    width: 150px;
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-size: 10px;
+    margin-top: 5px;
+    white-space: nowrap;
+    border-radius: 20px 20px 20px 20px !important;
+    margin-top: 10px;
 }
 
 .reviewer-name {
@@ -87,3 +101,22 @@ form.search button[type="submit"] {
 .signup-boxes {
     margin: 10px;
 }
+
+.register-submit {
+    /* border-radius: 20px 20px 20px 20px !important; */
+    padding: 5px 20px 5px 20px !important;
+    font-size: 13px !important;
+}
+
+.spacer {
+    padding-left: 5px;
+}
+
+.stars-container {
+    width: 150px;
+    margin: 10px 0 20px 0;
+}
+
+/* .stars {
+    display: flex;
+} */

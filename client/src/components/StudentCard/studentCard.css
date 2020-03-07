@@ -31,7 +31,12 @@ p {
 }
 
 .student-contact-button {
-    display: flex;
+    display: inline-flex;
     float: right;
     margin-bottom: 16px;
+    font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
+    color: white;
+    font-size: 13px !important;
+    border-radius: 20px 20px 20px 20px !important;
+    padding: 5px 15px 5px 15px !important;   
 }

@@ -21,6 +21,7 @@ class Jumbotron extends Home {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log(this.state.search)
     API.getTutors(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
@@ -45,7 +46,7 @@ class Jumbotron extends Home {
             button={"Submit"}
             className={"btn btn-success jumbotron-search-button"}
           />
-      <p className="signin-text">Already have an account? <a href="#">Sign in</a></p>
+      <a href="/login"><span class="spacer">Sign in</span></a>|<span class="spacer"><a href="/student">Create account</a></span>
 
     </div>
   );

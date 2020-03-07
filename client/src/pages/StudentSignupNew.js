@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Checkbox from "../components/Checkbox";
 import { Input, Select } from "../components/Form"
 import API from "../utils/API";
-import Divider from "../components/Divider"
+import Nav from "../components/Nav"
 
 
 
@@ -25,7 +25,7 @@ const OPTIONS = [ "Javascript", "Jquery", "React", "Ruby on Rails","SQL", "Mongo
 
 class StudentSignupNew extends Component {
   state = {
-    checkboxes: OPTIONS.reduce(
+    checkboxes: OPTIONS1.reduce(
       (options, option) => ({
         ...options,
         [option]: false
@@ -36,7 +36,7 @@ class StudentSignupNew extends Component {
         last: "",
         email: "",
         password: "",
-        expertise: [],
+        interests: [],
         photo: "",
         bio: "",
         level: ""
@@ -98,12 +98,8 @@ class StudentSignupNew extends Component {
     />
   );
 
-  foo = option => {
-    console.log("----------", option.category)
-
-    // <Divider 
-    //   category={option}    
-    // />
+  foo = (category) => {
+    console.log("----------", category)
   }
 
   //Obj.keys, then loop over that and push the 'true' to an array

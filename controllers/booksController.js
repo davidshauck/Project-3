@@ -24,7 +24,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findTutorById: function(req, res) {
-    console.log("RES ", req.query);
+    console.log("RES ", req.query.reviews);
     db.Tutor
       .findById(req.params.id)
       .sort({ date: -1 })
