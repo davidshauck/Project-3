@@ -1,4 +1,8 @@
 import React from "react";
+// video component
+export * from "./Container";
+export * from "./Row";
+// end video component
 
 // Exporting the Container, Row, and Col components from this file
 

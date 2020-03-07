@@ -1,13 +1,16 @@
 import React from "react";
 import "./form.css";
 
+// for videos
+export * from "./Input";
+export * from "./FormBtn";
+export * from "./Label";
+// for videos
 
 // This file exports the Input, TextArea, and FormBtn components
 
 export function Input(props) {
-  return (
-      <input className={"form-control " + props.inputClass} {...props} />
-  );
+  return <input className={"form-control " + props.inputClass} {...props} />;
 }
 
 export function TextArea(props) {
@@ -28,7 +31,12 @@ export function FormBtn(props) {
 
 export function Select(props) {
   return (
-    <select value={props.value} onChange={props.onChange} name={props.name} className="btn btn-secondary dropdown-toggle">
+    <select
+      value={props.value}
+      onChange={props.onChange}
+      name={props.name}
+      className="btn btn-secondary dropdown-toggle"
+    >
       {props.data.map((o, i) => (
         <option className="dropdown-item" key={i} value={o.value}>
           {o.name}
@@ -37,4 +45,3 @@ export function Select(props) {
     </select>
   );
 }
-  
