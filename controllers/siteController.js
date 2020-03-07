@@ -1,7 +1,7 @@
 const db = require("../models");
 const mongoose = require("mongoose");
 
-// Defining methods for the booksController
+// Defining methods for the siteController
 module.exports = {
   findAllStudents: function(req, res) {
     db.Student
@@ -11,11 +11,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findAllTutors: function(req, res) {
+    let query = req.body.data ? {expertise:req.body.data} : {}
     db.Tutor
-      .find(req.query)
+      // .find(req.query)
+      .find(query)
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .then(dbModel => {
+        console.log(dbModel) 
+        res.json(dbModel)
+      }).catch(err => res.status(422).json(err));
   },
   findStudentById: function(req, res) {
     db.Student

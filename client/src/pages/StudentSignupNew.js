@@ -73,7 +73,7 @@ class StudentSignupNew extends Component {
     Object.keys(this.state.checkboxes)
       .filter(checkbox => this.state.checkboxes[checkbox])
       .forEach(checkbox => {
-        this.state.expertise.push(checkbox);
+        this.state.interests.push(checkbox);
       });
       API.saveStudent({
         first: this.state.first,
@@ -82,7 +82,7 @@ class StudentSignupNew extends Component {
         password: this.state.password,
         photo: this.state.photo,
         bio: this.state.bio,
-        interests: this.state.expertise,
+        interests: this.state.interests,
         level: this.state.level
       })
     console.log(this.state)
@@ -176,7 +176,7 @@ return toReturn}
         <Select
             onChange={e => this.handleSelectChange(e)}
             name="level"
-            value={this.state.usState}
+            value={this.state.level}
             // className={"dropdown"}
             data={[
             { value: "No coding experience", name: "No coding experience" },

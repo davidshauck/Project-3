@@ -14,9 +14,9 @@ function StudentCard(props) {
           <div className="col-7 text">
               <div className="name">{props.first} {props.last} 
               </div>
-              <div className="interests">Need help in: {props.interests}</div>
-              <div className="level">Level: {props.level}</div>
-              <div className="goals">Goals: {props.bio}</div>     
+              <div className="interests"><b>Need help in:</b> {props.interests}</div>
+              <div className="level"><b>Level:</b> {props.level}</div>
+              <div className="goals"><b>Goals:</b> {props.bio}</div>     
           </div>
           <FormBtn 
             button={props.button}

@@ -64,7 +64,7 @@ function TutorCard(props) {
           <div className="goals">Bio: {props.bio}</div>
           <img className="stars-container" src={starCount(overallRating)} />
           <div className="rating">
-            { overallRating ? ( overallRating + " ("+ holder.length + ")" ) : (<div> No reviews yet</div>)}</div>
+            { overallRating ? ( parseFloat(overallRating).toFixed(1) + " ("+ holder.length + ")" ) : (<div> No reviews yet</div>)}</div>
           </div>
           <FormBtn
             button={props.button}

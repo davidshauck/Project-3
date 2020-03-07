@@ -8,7 +8,7 @@ import Stars1 from "./1-stars.jpg";
 import "./reviewCard.css";
 import Image from "../../components/Image"
 
-function StarCount(rating) {
+function starCount(rating) {
     
   console.log("RATING VALUE", rating)
   if (rating == 5) {
@@ -46,7 +46,7 @@ function ReviewCard(props) {
                       <div class="name">Name: <span class="plain">{review.name}</span></div>
                       <div class="name">Title: <span class="plain">{review.title}</span></div>
                       <div class="name">Review: <span class="plain">{review.review}</span></div>
-                      <img class="stars-container" src={StarCount(review.rating)} />     
+                      <img class="stars-container" src={starCount(review.rating)} />     
                       <hr />               
                   </ListItem>
                 ))}

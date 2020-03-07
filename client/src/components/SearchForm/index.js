@@ -27,15 +27,15 @@ function SearchForm(props) {
             <option value={course} key={course} />
           ))}
         </datalist>
-        <Link to="/students">
+        {/* <Link to={"/students/"}> */}
         <FormBtn 
           button={props.button}
           className={props.className}
           value={props.search}
           onClick={props.handleFormSubmit}
-          // onPress={() => navigation.navigate('Students')}
+          // onClick={event =>  window.location.href='/students'}
         />
-        </Link>
+        {/* </Link> */}
         {/* <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
           Search
         </button> */}

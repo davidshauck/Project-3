@@ -1,16 +1,17 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/booksController");
+const siteController = require("../../controllers/siteController");
 
 // Matches with "/api/tutors"
 router.route("/")
-  .get(booksController.findAllTutors)
-  .put(booksController.saveReview)
-  .post(booksController.createTutor);
+  .get(siteController.findAllTutors)
+  .put(siteController.saveReview)
+  .post(siteController.createTutor);
 
+router.route("/search").post(siteController.findAllTutors)
 // Matches with "/api/tutors/:id"
 router.route("/:id")
-  .get(booksController.findTutorById)
-  // .put(booksController.saveReview)
-  .delete(booksController.removeTutor);
+  .get(siteController.findTutorById)
+  // .put(siteController.saveReview)
+  .delete(siteController.removeTutor);
 
 module.exports = router;

@@ -21,8 +21,8 @@ export default {
   saveTutor: function(tutorData) {
     return axios.post("/api/tutors", tutorData);
   },
-  getTutors: function() {
-    return axios.get("/api/tutors/");
+  getTutors: function(query) {
+    return axios.post("/api/tutors/search", {data: query});
   },
   getTutor: function(id) {
     return axios.get("/api/tutors/" + id);
