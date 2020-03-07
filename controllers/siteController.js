@@ -10,6 +10,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findAll: function(req, res) {
+    // db.Student
+    //   .find(req.query)
+    //   .sort({ date: -1 })
+    //   .then(dbModel => res.json(dbModel))
+    //   .catch(err => res.status(422).json(err));
+    res.send('ok')
+  },
   findAllTutors: function(req, res) {
     let query = req.body.data ? {expertise:req.body.data} : {}
     db.Tutor
