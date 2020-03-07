@@ -13,9 +13,9 @@ function Nav() {
     
       <div className="navbar-buttons col-7">
         <ul className="navbar-nav">
-        <Link push to="/tutors">
+          <Link push to="/videos">
           <li className="nav-item">
-            <a className="nav-link" href="/students">Videos</a>
+            <a className="nav-link" href="/videos">Videos</a>
           </li>
           </Link>
           <Link push to="/tutors">
