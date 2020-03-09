@@ -1,0 +1,52 @@
+.image {
+    width: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.plain {
+    font-weight: normal;
+}
+
+.text {
+    display: inline-block;
+}
+
+.results-box {
+    margin-top: 0px;
+    padding: 0px;
+}
+
+p {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.stars-container {
+    width: 150px;
+    margin: 10px 0 20px 0;
+}
+
+.name {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.interests, .goals, .level {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-size: 13px;
+    width: 100%;
+}
+
+h3.messages-header {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+h3.no-messages {
+    font-size: 16px;
+    font-style: italic;
+}

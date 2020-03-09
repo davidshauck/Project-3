@@ -12,18 +12,9 @@ const studentSchema = new Schema({
   level: { type: String },
   interests: { type: Array },
   bio: { type: String },
+  messages: { type: Array },
   date: { type: Date, default: Date.now }
 });
-
-
-// studentSchema.methods = {
-// 	checkPassword: function (inputPassword) {
-// 		return bcrypt.compareSync(inputPassword, this.password)
-// 	},
-// 	hashPassword: plainTextPassword => {
-// 		return bcrypt.hashSync(plainTextPassword, 10)
-// 	}
-// }
 
 // Execute before each user.save() call
 studentSchema.pre("save", function(callback) {

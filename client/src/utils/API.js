@@ -30,6 +30,9 @@ export default {
   saveReview: function(tutorData) {
     return axios.put("/api/tutors", tutorData);
   },
+  saveMessage: function(studentData) {
+    return axios.put("/api/students", studentData);
+  },
   // Searches the  books according to the search criteria given in the form
   getNewVideos: function(req) {
     return axios.get(

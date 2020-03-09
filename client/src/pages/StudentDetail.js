@@ -2,90 +2,62 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
-import TutorCard from "../components/TutorCard";
-import ReviewCard from "../components/ReviewCard";
+import StudentCard from "../components/StudentCard";
+import MessageCard from "../components/MessageCard";
 import { TextArea, FormBtn, Input } from "../components/Form";
-import StarRatings from "../components/StarRatings";
-import BlankStar from "./star-blank.jpg";
-import FilledStar from "./star-single.jpg";
 import "./style.css";
 
-class TutorDetail extends Component {
+class StudentDetail extends Component {
   state = {
     id: this.props.match.params.id,
     error: "",
-    tutor: {},
+    student: {},
     button: "Contact",
-    reviewsOn: -1,
-    activeStudent: "Dave H.",
-    reviewTitle: "",
-    reviewBody: "",
-    reviews: "",
-    rating: "",
-    stars: [
-      BlankStar,
-      BlankStar,
-      BlankStar,
-      BlankStar,
-      BlankStar,
-  ] 
+    messageTitle: "",
+    messageBody: "",
+    messageToggle: -1,
+    activeTutor: "Justin R.",
+    messages: ""
   };
 
-starClick = (event) => {
-    let tempStars = [];
-    const {id} = event.target
-    for (let i = 0; i < id; i++) {
-        tempStars.push(FilledStar)
-    }
-    for (let i = 0; i < (5 - id); i++) {
-        tempStars.push(BlankStar)
-    }  
-    this.setState({
-        stars: tempStars,
-        rating: id
-    })
-}
-
   componentDidMount() {
-      API.getTutor(this.props.match.params.id)
+      API.getStudent(this.props.match.params.id)
       .then(res => this.setState({ 
-        tutor: res.data, 
-        reviews: res.data.reviews 
+        student: res.data, 
+        messages: res.data.messages 
       }))
       .catch(err => console.log(err));
       console.log("STATE", this.state)
   }
 
-  toggleReviews = event => {
-    console.log("TUTOR", this.state.tutor.expertise.join(", "))
-
+  toggleMessages = event => {
+    console.log("TUTOR", this.state.interests)
     event.preventDefault();
     this.setState({
-      reviewsOn: this.state.reviewsOn *= -1
+      messageToggle: this.state.messageToggle *= -1
     });
   };
 
-  submitReview = event => {
+  submitMessage = event => {
     event.preventDefault();
-    let newReview = {
+    let newMessage = {
       id: this.state.id,
-      name: this.state.activeStudent,
-      title: this.state.reviewTitle,
-      review: this.state.reviewBody,
-      rating: this.state.rating,
+      name: this.state.activeTutor,
+      title: this.state.messageTitle,
+      message: this.state.messageBody,
       date: Date(Date.now())
     }
-    API.saveReview(newReview)
+    API.saveMessage(newMessage)
     .then(res => {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
     }).then(window.location.reload(true))
     .catch(err => this.setState({ error: err.message }));
-    API.getTutor(this.props.match.params.id)
+    API.getStudent(this.props.match.params.id)
       .then(res => this.setState({ 
-        reviews: res.data.reviews,
-        reviewsOn: this.state.reviewsOn *= -1 
+        messages: res.data.messages,
+        messageToggle: this.state.messageToggle *= -1 
       }))
       .catch(err => console.log(err));
   }
@@ -116,48 +88,49 @@ starClick = (event) => {
               {/* <List> */}
               <div className="box list-overflow-container" style={{margin: "0 10% 0 10%"}}>
                 
-            <TutorCard 
-               first={this.state.tutor.first}
-               last={this.state.tutor.last}
-               photo={this.state.tutor.photo}
-               expertise={this.state.tutor.expertise}
-               bio={this.state.tutor.bio}
+            <StudentCard 
+               first={this.state.student.first}
+               last={this.state.student.last}
+               photo={this.state.student.photo}
+               interests={this.state.student.interests}
+               bio={this.state.student.bio}
                button={this.state.button} 
-               reviews={this.state.tutor.reviews}              
+               level={this.state.student.level}
+               messages={this.state.student.messages}              
             />
             <FormBtn 
-              button={"Write a review"}
+              button={"Leave a message"}
               className={"btn btn-success review-button col-3"}
-              onClick={e => this.toggleReviews(e)}
+              onClick={e => this.toggleMessages(e)}
             />
-            {this.state.reviewsOn > 0 ? (
+            {this.state.messageToggle > 0 ? (
               <div>
-              <p className="reviewer-name">{this.state.activeStudent}</p>
+              <p className="reviewer-name">{this.state.activeTutor}</p>
               
               <Input
-                name="reviewTitle"
+                name="messageTitle"
                 placeholder="Title"
-                title={this.state.reviewTitle}
+                title={this.state.messageTitle}
                 onChange={e => this.handleInputChange(e)}
               />
 
               <TextArea 
-                name="reviewBody"
+                name="messageBody"
                 rows={5}
-                review={this.state.reviewBody}
-                placeholder={"Review here"}
+                message={this.state.messageBody}
+                placeholder={"Message here"}
                 onChange={e => this.handleInputChange(e)}
               />
-              <StarRatings 
+              {/* <StarRatings 
                 className="stars" 
                 onClick={(e) => this.starClick(e)} 
                 stars={this.state.stars}
               
-              />
+              /> */}
               <FormBtn 
                 button={"Submit"}
                 className={"btn btn-danger review-submit-button"}
-                onClick={(e) => this.submitReview(e)}
+                onClick={(e) => this.submitMessage(e)}
                 onclick={() => this.window.location.reload(true)}
               />
               
@@ -166,9 +139,9 @@ starClick = (event) => {
               <h3></h3>
             )}
 
-            <ReviewCard 
-              reviews={this.state.reviews}
-              first={this.state.tutor.first}
+            <MessageCard 
+              messages={this.state.messages}
+              first={this.state.student.first}
             />
              {/* <Link to="/">← Back to search</Link> */}
 
@@ -191,4 +164,4 @@ starClick = (event) => {
   }
 }
 
-export default TutorDetail;
+export default StudentDetail;

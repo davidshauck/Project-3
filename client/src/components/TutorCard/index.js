@@ -33,22 +33,16 @@ function starCount(rating) {
   return Stars1;
 }
 
-
-
 function TutorCard(props) {
 
   let holder = [];
   (props.reviews || []).map(review => (
     holder.push(review.rating)
     ))
-  console.log("HOLDER", holder)
-  let overallRating = holder.reduce((sum, num) => parseInt(sum) + parseInt(num), 0);
-  overallRating = overallRating/holder.length;
-  // console.log("Rating", x)
-
+    let overallRating = holder.reduce((sum, num) => parseInt(sum) + parseInt(num), 0);
+    overallRating = overallRating/holder.length;
 
   return (
-    
     <div>
       <div className="results-box">
           <div className="col-3 image">
@@ -57,8 +51,6 @@ function TutorCard(props) {
           <div className="col-7 text">
           <div className="tutor-name">{props.first} {props.last}
           </div>
-
-
 
           <div className="expertise">Expertise: {(props.expertise || []).join(", ")}</div>
           <div className="goals">Bio: {props.bio}</div>

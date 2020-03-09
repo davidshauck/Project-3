@@ -3,6 +3,8 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import StudentCard from "../components/StudentCard";
+import { Link } from "react-router-dom";
+
 
 class Tutors extends Component {
     constructor(props) {
@@ -74,7 +76,7 @@ class Tutors extends Component {
                       <h2>Students requesting tutors</h2>
                       {results.map(student => (
                         <ListItem key={student._id}>
-                          {/* <Link to={"/students/" + student._id}> */}
+                          <Link to={"/students/" + student._id}>
                             <StudentCard 
                               first={student.first}
                               last={student.last}
@@ -84,7 +86,7 @@ class Tutors extends Component {
                               level={student.level}
                               button={"Send messge"}                            
                             />
-                          {/* </Link> */}
+                          </Link>
     
                         </ListItem>
                       ))}
