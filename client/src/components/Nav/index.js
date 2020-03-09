@@ -6,15 +6,17 @@ import "./navbar.css";
 
 function Nav() {
 
+  let loggedInUser;
+
   const Auth = new AuthService();
 
   function showNavigation() {
     if (Auth.loggedIn()) {
-
+      
+      loggedInUser = Auth.getProfile();
+      // console.log("NEW NEW LOGGED IN USER ", loggedInUser)
   return (
    
-  
-    
       <div className="navbar-buttons col-7">
         <ul className="navbar-nav">
           <Link push to="/videos">
@@ -32,10 +34,17 @@ function Nav() {
             <div className="nav-link">Ask the class</div>
           </li>
           </Link>
-          <Link push to="/login">
-            <li className="nav-item">
-              <div className="nav-link" onClick={() => Auth.logout()}>Logout</div>
-            </li>
+          <Link to={"/account/" + loggedInUser.id}>
+          <li className="nav-item">
+            <div className="nav-link">My account</div>
+          </li>
+          {console.log("NEW NEW LOGGED IN USER ", loggedInUser.id)}
+
+          </Link>
+          <Link push to="/">
+            <div className="nav-item">
+              <div className="nav-link" href="/" onClick={() => Auth.logout()}>Logout</div>
+            </div>
           </Link>
 
           <Link push to="/tutorsignup">

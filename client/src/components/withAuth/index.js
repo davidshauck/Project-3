@@ -11,6 +11,8 @@ export default function withAuth(AuthComponent) {
       };
     }
     componentWillMount() {
+        console.log("PROFILE", user)
+
       if (!Auth.loggedIn()) {
         this.props.history.replace("/studentsignup");
       } else {

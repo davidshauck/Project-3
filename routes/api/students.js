@@ -19,14 +19,14 @@ router.route("/")
   .post(siteController.createStudent);
 
 // Matches with "/api/students/:id"
-// router.route("/:id")
-//   .get(siteController.findStudentById)
-//   .put(siteController.updateStudent)
-//   .delete(siteController.removeStudent);
+router.route("/:id")
+  .get(siteController.findStudentById)
+  .put(siteController.updateStudent)
+  .delete(siteController.removeStudent);
 
 // Any route with isAuthenticated is protected and you need a valid token
 // to access
-router.route("/:id").get(isAuthenticated, (req, res) => {
+router.route("account/:id").get(isAuthenticated, (req, res) => {
   db.Student.findById(req.params.id)
     .then(data => {
       if (data) {
