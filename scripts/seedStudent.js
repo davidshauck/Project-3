@@ -106,6 +106,7 @@ db.Student
         ],
         bio:
           "Trying to learn javascript to impress the ladies",
+        reviews: [],
         date: new Date(Date.now())
       },
       {
