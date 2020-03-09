@@ -1,5 +1,6 @@
 import decode from "jwt-decode";
 import axios from "axios";
+
 export default class AuthService {
   login = (email, password) => {
     console.log("LOGIN INFO: ", email, password)
@@ -27,9 +28,12 @@ export default class AuthService {
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
+  
+
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
+      console.log(decoded)
       if (decoded.exp < Date.now() / 1000) {
         return true;
       } else return false;

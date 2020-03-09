@@ -12,6 +12,7 @@ import StudentDetail from "./pages/StudentDetail";
 import TutorSignupNew from "./pages/TutorSignupNew";
 import StudentSignupNew from "./pages/StudentSignupNew";
 import SearchProvider from "./SearchProvider"
+import AccountDashboard from "./pages/AccountDashboard"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route exact path="/studentsignup" component={StudentSignupNew} />
             <Route exact path="/tutors/:id" component={TutorDetail} />
             <Route exact path="/students/:id" component={StudentDetail} />
+            <Route exact path="/account/:id" component={AccountDashboard} />
             <Route exact path="/videos" component={Video} />
             <Route component={NoMatch} />
           </Switch>

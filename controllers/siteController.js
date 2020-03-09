@@ -30,6 +30,7 @@ module.exports = {
       }).catch(err => res.status(422).json(err));
   },
   findStudentById: function(req, res) {
+    console.log("AM I HERE?")
     db.Student
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
