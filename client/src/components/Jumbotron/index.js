@@ -6,7 +6,11 @@ import "./jumbotron.css";
 class Jumbotron extends Component {
 
   render() {
-    
+      // if(!this.state.error){
+    //   return(<Redirect push to={{pathname: "/students", state: context.state}}/>)
+    //   return(<Redirect push to={{pathname: "/students"}}/>)
+
+    // }
   return (
     <div className="jumbotron jumboHome">
         <div className="main-header">

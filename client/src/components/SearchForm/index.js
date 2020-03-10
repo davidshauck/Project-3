@@ -4,7 +4,7 @@ import "./searchForm.css";
 import { SearchConsumer } from '../../SearchProvider'
 import {withRouter} from 'react-router';
 
-function SearchForm(props) {
+function SearchForm() {
   
   // const navigation = useNavigation();
 

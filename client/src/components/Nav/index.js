@@ -14,24 +14,24 @@ function Nav() {
     if (Auth.loggedIn()) {
       
       loggedInUser = Auth.getProfile();
-      // console.log("NEW NEW LOGGED IN USER ", loggedInUser)
-  return (
+      console.log("NEW NEW LOGGED IN USER ", loggedInUser)
+      return (
    
       <div className="navbar-buttons col-7">
         <ul className="navbar-nav">
           <Link push to="/videos">
           <li className="nav-item">
-            <div className="nav-link">Videos</div>
+            <div className="nav-link">Webinars</div>
           </li>
           </Link>
-          <Link push to="/tutors">
+          {/* <Link push to="/tutors">
           <li className="nav-item">
             <div className="nav-link">Job leads</div>
           </li>
-          </Link>
+          </Link> */}
           <Link push to="/students">
           <li className="nav-item">
-            <div className="nav-link">Ask the class</div>
+            <div className="nav-link">Find tutors</div>
           </li>
           </Link>
           <Link to={"/account/" + loggedInUser.id}>
@@ -42,9 +42,9 @@ function Nav() {
 
           </Link>
           <Link push to="/">
-            <div className="nav-item">
+            <li className="nav-item">
               <div className="nav-link" href="/" onClick={() => Auth.logout()}>Logout</div>
-            </div>
+            </li>
           </Link>
 
           <Link push to="/tutorsignup">
@@ -63,17 +63,17 @@ function Nav() {
   <ul className="navbar-nav">
     <Link push to="/videos">
     <li className="nav-item">
-      <div className="nav-link">Videos</div>
+      <div className="nav-link">Webinars</div>
     </li>
     </Link>
-    <Link push to="/tutors">
+    {/* <Link push to="/tutors">
     <li className="nav-item">
       <div className="nav-link">Job leads</div>
     </li>
-    </Link>
+    </Link> */}
     <Link push to="/students">
     <li className="nav-item">
-      <div className="nav-link">Ask the class</div>
+      <div className="nav-link">Find tutors</div>
     </li>
     </Link>
     <Link push to="/login">
