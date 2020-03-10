@@ -161,3 +161,23 @@ db.Student
       }
     ]
  )
+
+ db.students.insertOne(
+  {
+    first: "Dave",
+    last: "Hauck",
+    email: "dave@dave.com",
+    password: " ",
+    photo: "https://ca.slack-edge.com/TMU2T4ECF-UMYCUP8E5-f99c481e727c-512",
+    level: "beginner",
+    status: 1,
+    interests: [
+      "javacript", 
+      "react"
+    ],
+    bio:
+      "Trying to learn javascript to impress the ladies",
+    reviews: [],
+    date: new Date(Date.now())
+  }
+ )

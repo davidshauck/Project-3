@@ -101,16 +101,16 @@ class SearchProvider extends Component {
         //   messages: "",
         //   messageSent: ""
         // },
-        modal: {
-          show: false,
-          handleClose: () => {
-            this.setState({ ...this.state, show: false });
-          },
+        // modal: {
+        //   show: false,
+        //   handleClose: () => {
+        //     this.setState({ ...this.state, show: false });
+        //   },
         
-          handleShow: () => {
-            this.setState({ ...this.state, show: true });
-          }
-        }
+        //   handleShow: () => {
+        //     this.setState({ ...this.state, show: true });
+        //   }
+        // }
       };
 
 

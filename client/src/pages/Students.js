@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 // import { Input, TextArea, FormBtn, Checkboxes } from "../components/Form";
 // import Nav from "../components/Nav";
-import StudentSearch from "../components/StudentSearch";
 import TutorCard from "../components/TutorCard";
 import SearchForm from "../components/SearchForm";
 import { SearchConsumer } from '../SearchProvider'
@@ -129,8 +126,6 @@ class Students extends Component {
               </SearchConsumer>
             </Col>
             <Col size="md-2">
-              {/* <div class="box">
-              </div> */}
             </Col>
           </Row>
         </Container>

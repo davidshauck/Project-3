@@ -73,7 +73,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   saveMessage: function(req, res) {
-    console.log(req.body)
+    console.log("MESSAGE", req.body)
      db.Student
     .update(
        { _id: mongoose.Types.ObjectId(req.body.id)},
