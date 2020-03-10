@@ -5,9 +5,63 @@ import API from "../utils/API";
 import StudentCard from "../components/StudentCard";
 import MessageCard from "../components/MessageCard";
 import { TextArea, FormBtn, Input } from "../components/Form";
+import Button from 'react-bootstrap/button'
+import Modal from 'react-bootstrap/modal'
 
 import "./style.css";
-import Example from "../components/ModalExample";
+// import Example from "../components/ModalExample";
+
+// class Example extends React.Component {
+// 	// constructor(props, context) {
+// 	// 	super(props, context);
+
+// 	// 	this.handleShow = this.handleShow.bind(this);
+// 	// 	this.handleClose = this.handleClose.bind(this);
+
+// 	// 	this.state = {
+// 	// 		show: false,
+// 	// 	};
+//   // }
+  
+//   state = {
+//     show: false
+//   }
+
+// 	handleClose = () => {
+// 		this.setState({ show: false });
+// 	}
+
+// 	handleShow = () => {
+// 		this.setState({ show: true });
+// 	}
+
+// 	render() {
+// 		return (
+// 			<>
+// 				<Button variant="primary" onClick={this.handleShow}>
+// 					Submit
+//         </Button>
+
+// 				<Modal show={this.state.show} onHide={this.handleClose}>
+// 					{/* <Modal.Header closeButton>
+// 						<Modal.Title>Modal heading</Modal.Title>
+// 					</Modal.Header> */}
+// 					<Modal.Body>Your message has been sent</Modal.Body>
+// 					<Modal.Footer>
+// 						<Button variant="secondary" onClick={this.handleClose}>
+// 							Close
+//             </Button>
+// 						{/* <Button variant="primary" onClick={this.handleClose}>
+// 							Save Changes
+//             </Button> */}
+// 					</Modal.Footer>
+// 				</Modal>
+// 			</>
+// 		);
+// 	}
+// }
+
+
 
 class StudentDetail extends Component {
   state = {
@@ -18,7 +72,7 @@ class StudentDetail extends Component {
     messageTitle: "",
     messageBody: "",
     messageToggle: -1,
-    activeTutor: "Lady G.",
+    activeTutor: "Donald T.",
     messages: "",
     messageSent: ""
   };
@@ -30,21 +84,32 @@ class StudentDetail extends Component {
         messages: res.data.messages 
       }))
       .catch(err => console.log(err));
-      console.log("STATE", this.state)
+      console.log("MESSAGES STATE", this.state)
   }
 
-  componentWillUnmount() {
-      this.setState({
-          ...this.state, 
-          messageSent: ""
-      })
-  }
+//   componentWillUnmount() {
+//       this.setState({
+//           ...this.state, 
+//           messageSent: ""
+//       })
+//   }
+
+  handleClose = (e) => {
+    e.preventDefault();
+    this.setState({ show: false });
+}
+
+handleShow = (e) => {
+    e.preventDefault();
+    this.setState({ show: true });
+}
 
   toggleMessages = event => {
+    this.state.messageToggle *= -1;
     event.preventDefault();
     this.setState({
         ...this.state, 
-        messageToggle: this.state.messageToggle *= -1
+        messageToggle: this.state.messageToggle
     });
   };
 
@@ -57,6 +122,8 @@ class StudentDetail extends Component {
       message: this.state.messageBody,
       date: Date(Date.now())
     }
+    console.log(newMessage)
+    // this.state.messageToggle *= -1;
     API.saveMessage(newMessage)
     .then(res => {
       if (res.data.status === "error") {
@@ -65,12 +132,10 @@ class StudentDetail extends Component {
     }).then(window.location.reload(true))
     .catch(err => this.setState({ error: err.message }));
     API.getStudent(this.props.match.params.id)
-      .then(res => this.setState({ ...this.state,
-        messages: "Your message has been sent",
-        messageToggle: this.state.messageToggle *= -1,
-        messageSent: "Your message has been sent" 
+      .then(res => this.setState({
+        messages: this.state.messages,
+        // messageToggle: this.state.messageToggle
       }))
-      console.log("MS", this.state.messageSent, this.state.messages)
       .catch(err => console.log(err));
   }
 
@@ -133,15 +198,34 @@ class StudentDetail extends Component {
                 placeholder={"Message here"}
                 onChange={e => this.handleInputChange(e)}
               />
-              <Example 
-              
-              onClick={(e) => this.submitMessage(e)}
-              />
+
+            <Modal show={this.state.show} onHide={this.handleClose}>
+                {/* <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header> */}
+                <Modal.Body>Your message has been sent</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" 
+                        onClick={async (e) => {
+                            await this.handleClose(e);
+                            await this.toggleMessages(e);
+                        }}>
+                        Close
+                    </Button>
+                    {/* <Button variant="primary" onClick={this.handleClose}>
+                        Save Changes
+                    </Button> */}
+                </Modal.Footer>
+            </Modal>
+
               <FormBtn 
                 button={"Submit"}
                 className={"btn btn-danger review-submit-button"}
-                onClick={(e) => this.submitMessage(e)}
-                onclick={() => this.window.location.reload(true)}
+                onClick={async (e) => 
+                    {
+                        await this.handleShow(e);
+                        await this.submitMessage(e);
+                    }}
               />
               
               </div>
