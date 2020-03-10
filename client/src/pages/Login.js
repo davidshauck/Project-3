@@ -42,6 +42,7 @@ class Login extends Component {
         // take them to their profile page
         this.props.history.replace(`/`);
       })
+      .then(() => window.location.reload(false))
       .catch(err => {
         alert(err.response.data.message);
       });

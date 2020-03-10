@@ -43,9 +43,9 @@ class Example extends React.Component {
 						<Button variant="secondary" onClick={this.handleClose}>
 							Close
             </Button>
-						<Button variant="primary" onClick={this.handleClose}>
+						{/* <Button variant="primary" onClick={this.handleClose}>
 							Save Changes
-            </Button>
+            </Button> */}
 					</Modal.Footer>
 				</Modal>
 			</>
