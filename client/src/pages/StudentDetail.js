@@ -5,7 +5,9 @@ import API from "../utils/API";
 import StudentCard from "../components/StudentCard";
 import MessageCard from "../components/MessageCard";
 import { TextArea, FormBtn, Input } from "../components/Form";
+
 import "./style.css";
+import Example from "../components/ModalExample";
 
 class StudentDetail extends Component {
   state = {
@@ -16,8 +18,9 @@ class StudentDetail extends Component {
     messageTitle: "",
     messageBody: "",
     messageToggle: -1,
-    activeTutor: "Justin R.",
-    messages: ""
+    activeTutor: "Lady G.",
+    messages: "",
+    messageSent: ""
   };
 
   componentDidMount() {
@@ -30,11 +33,18 @@ class StudentDetail extends Component {
       console.log("STATE", this.state)
   }
 
+  componentWillUnmount() {
+      this.setState({
+          ...this.state, 
+          messageSent: ""
+      })
+  }
+
   toggleMessages = event => {
-    console.log("TUTOR", this.state.interests)
     event.preventDefault();
     this.setState({
-      messageToggle: this.state.messageToggle *= -1
+        ...this.state, 
+        messageToggle: this.state.messageToggle *= -1
     });
   };
 
@@ -55,10 +65,12 @@ class StudentDetail extends Component {
     }).then(window.location.reload(true))
     .catch(err => this.setState({ error: err.message }));
     API.getStudent(this.props.match.params.id)
-      .then(res => this.setState({ 
-        messages: res.data.messages,
-        messageToggle: this.state.messageToggle *= -1 
+      .then(res => this.setState({ ...this.state,
+        messages: "Your message has been sent",
+        messageToggle: this.state.messageToggle *= -1,
+        messageSent: "Your message has been sent" 
       }))
+      console.log("MS", this.state.messageSent, this.state.messages)
       .catch(err => console.log(err));
   }
 
@@ -121,12 +133,10 @@ class StudentDetail extends Component {
                 placeholder={"Message here"}
                 onChange={e => this.handleInputChange(e)}
               />
-              {/* <StarRatings 
-                className="stars" 
-                onClick={(e) => this.starClick(e)} 
-                stars={this.state.stars}
+              <Example 
               
-              /> */}
+              onClick={(e) => this.submitMessage(e)}
+              />
               <FormBtn 
                 button={"Submit"}
                 className={"btn btn-danger review-submit-button"}
@@ -138,16 +148,9 @@ class StudentDetail extends Component {
             ) : (
               <h3></h3>
             )}
-
-            <MessageCard 
-              messages={this.state.messages}
-              first={this.state.student.first}
-            />
-             {/* <Link to="/">← Back to search</Link> */}
-
+                        
 
             </div>
-            {/* </List> */}
               
           </Col>
           <Col size="md-1" />

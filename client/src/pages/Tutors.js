@@ -84,7 +84,7 @@ class Tutors extends Component {
                               interests={student.interests.join(", ")}
                               bio={student.bio}
                               level={student.level}
-                              button={"Send messge"}                            
+                              button={"Contact"}                            
                             />
                           </Link>
     
