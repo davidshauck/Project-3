@@ -5,8 +5,7 @@ import API from "../utils/API";
 import StudentCard from "../components/StudentCard";
 import MessageCard from "../components/MessageCard";
 import { TextArea, FormBtn, Input } from "../components/Form";
-import Button from 'react-bootstrap/button'
-import Modal from 'react-bootstrap/modal'
+import { Button, Modal } from 'react-bootstrap';
 
 import "./style.css";
 // import Example from "../components/ModalExample";
