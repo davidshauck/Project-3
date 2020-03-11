@@ -35,6 +35,7 @@ export default {
   },
   // Searches the  books according to the search criteria given in the form
   getNewVideos: function(req) {
+    console.log("HERE")
     return axios.get(
       "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" +
         req +

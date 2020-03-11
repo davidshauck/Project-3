@@ -4,8 +4,6 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import StudentCard from "../components/StudentCard";
 import { Link } from "react-router-dom";
-
-
 class Tutors extends Component {
     constructor(props) {
       super(props)
@@ -40,19 +38,6 @@ class Tutors extends Component {
           [name]: value
         });
       };
-    
-      // handleFormSubmit = event => {
-      //   event.preventDefault();
-      //   if (this.state.first && this.state.last) {
-      //     API.saveStudent({
-      //       first: this.state.first,
-      //       last: this.state.last,
-      //       bio: this.state.bio
-      //     })
-      //       .then(res => this.loadStudents())
-      //       .catch(err => console.log(err));
-      //   }
-      // };
     
       render() {
         let results = (this.props.location.state || {}).results ?  this.props.location.state.results : this.state.students

@@ -35,47 +35,6 @@ class AccountDashboard extends Component {
       console.log("LOGGED IN USER***", this.state.loggedInUser.id)
   }
 
-//   toggleMessages = event => {
-//     console.log("TUTOR", this.state.interests)
-//     event.preventDefault();
-//     this.setState({
-//       messageToggle: this.state.messageToggle *= -1
-//     });
-//   };
-
-//   submitMessage = event => {
-//     event.preventDefault();
-//     let newMessage = {
-//       id: this.state.id,
-//       name: this.state.activeTutor,
-//       title: this.state.messageTitle,
-//       message: this.state.messageBody,
-//       date: Date(Date.now())
-//     }
-//     API.saveMessage(newMessage)
-//     .then(res => {
-//       if (res.data.status === "error") {
-//         throw new Error(res.data.message);
-//       }
-//     }).then(window.location.reload(true))
-//     .catch(err => this.setState({ error: err.message }));
-//     API.getStudent(this.props.match.params.id)
-//       .then(res => this.setState({ 
-//         messages: res.data.messages,
-//         messageToggle: this.state.messageToggle *= -1 
-//       }))
-//       .catch(err => console.log(err));
-//   }
-
-  // sortReviews = reviews => {
-  //   // Sort array by date in DESCENDING order
-  // reviews.sort(function (a, b) {
-  //   if (a.date > b.date) return -1;
-  //   if (a.date < b.date) return 1;
-  //   return 0;
-  // });
-  // }
-
   handleInputChange = event => {
     console.log(event.target.value);
     const { name, value } = event.target;
