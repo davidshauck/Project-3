@@ -9,7 +9,6 @@ import { Col, Row, Container } from "../components/Grid";
 // import Nav from "../components/Nav"
 import "./style.css";
 
-
 class Home extends Component {
   state = {
     books: [],
@@ -21,11 +20,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-      {/* <Nav /> */}
+        {/* <Nav /> */}
         <Container fluid>
           <Row>
             <Col size="md-12">
-              <Jumbotron />           
+              <Jumbotron />
             </Col>
           </Row>
         </Container>
