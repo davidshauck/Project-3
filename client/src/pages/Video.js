@@ -23,8 +23,8 @@ class Video extends Component {
     event.preventDefault();
     console.log("INPUT ", event.target.value)
     const { name, value } = event.target;
-    this.setState({ ...this.state, search: event.target.value
-      // [name]: value
+    this.setState({ 
+      [name]: value
     });
   };
 
