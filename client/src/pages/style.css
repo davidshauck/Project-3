@@ -5,7 +5,6 @@
 body {
     background: url("../images/students.jpg");
     background-repeat: no-repeat;
-    /* height: 100%; */
     background-size: 1420px;
 }
 
@@ -28,22 +27,15 @@ form.search {
 }
 
 form.search button[type="submit"] {
-  /* margin-top: 10px; */
-  /* display: flex; */
   float: right;
 }
 
 .form-group {
     display: flex;
-    /* margin-top: 20px !important; */
-    /* width: 100%; */
-    /* margin-bottom: 8px; */
-    /* display: flex; */
 }
 
 .form-control {
     display: inline-block !important;
-    /* margin: 10px; */
 }
 
 .box {
@@ -56,7 +48,6 @@ form.search button[type="submit"] {
 }
 
 .review-button {
-    /* width: 200px; */
     Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
     font-size: 10px;
     margin-top: 5px;
@@ -103,7 +94,6 @@ form.search button[type="submit"] {
 }
 
 .register-submit {
-    /* border-radius: 20px 20px 20px 20px !important; */
     padding: 5px 20px 5px 20px !important;
     font-size: 13px !important;
 }
@@ -116,7 +106,3 @@ form.search button[type="submit"] {
     width: 150px;
     margin: 10px 0 20px 0;
 }
-
-/* .stars {
-    display: flex;
-} */

@@ -1,5 +1,6 @@
 const db = require('../models');
 const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 module.exports = {
   logUserIn: function (email, password) {

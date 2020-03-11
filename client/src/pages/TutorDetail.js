@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import TutorCard from "../components/TutorCard";
@@ -9,7 +8,6 @@ import StarRatings from "../components/StarRatings";
 import BlankStar from "./star-blank.jpg";
 import FilledStar from "./star-single.jpg";
 import "./style.css";
-
 class TutorDetail extends Component {
   state = {
     id: this.props.match.params.id,
@@ -17,7 +15,7 @@ class TutorDetail extends Component {
     tutor: {},
     button: "Contact",
     reviewsOn: -1,
-    activeStudent: "Achille B.",
+    activeStudent: "Bikal T.",
     reviewTitle: "",
     reviewBody: "",
     reviews: "",
@@ -28,7 +26,7 @@ class TutorDetail extends Component {
       BlankStar,
       BlankStar,
       BlankStar,
-  ] 
+    ] 
   };
 
 starClick = (event) => {
@@ -90,15 +88,6 @@ starClick = (event) => {
       .catch(err => console.log(err));
   }
 
-  // sortReviews = reviews => {
-  //   // Sort array by date in DESCENDING order
-  // reviews.sort(function (a, b) {
-  //   if (a.date > b.date) return -1;
-  //   if (a.date < b.date) return 1;
-  //   return 0;
-  // });
-  // }
-
   handleInputChange = event => {
     console.log(event.target.value);
     const { name, value } = event.target;
@@ -132,15 +121,13 @@ starClick = (event) => {
             />
             {this.state.reviewsOn > 0 ? (
               <div>
-              <p className="reviewer-name">{this.state.activeStudent}</p>
-              
+              <p className="reviewer-name">{this.state.activeStudent}</p>           
               <Input
                 name="reviewTitle"
                 placeholder="Title"
                 title={this.state.reviewTitle}
                 onChange={e => this.handleInputChange(e)}
               />
-
               <TextArea 
                 name="reviewBody"
                 rows={5}
@@ -151,41 +138,26 @@ starClick = (event) => {
               <StarRatings 
                 className="stars" 
                 onClick={(e) => this.starClick(e)} 
-                stars={this.state.stars}
-              
+                stars={this.state.stars}            
               />
               <FormBtn 
                 button={"Submit"}
                 className={"btn btn-danger review-submit-button"}
                 onClick={(e) => this.submitReview(e)}
                 onclick={() => this.window.location.reload(true)}
-              />
-              
+              />         
               </div>
             ) : (
               <h3></h3>
             )}
-
             <ReviewCard 
               reviews={this.state.reviews}
               first={this.state.tutor.first}
             />
-             {/* <Link to="/">← Back to search</Link> */}
-
-
-            </div>
-            {/* </List> */}
-              
+            </div>              
           </Col>
           <Col size="md-1" />
-
         </Row>
-        {/* <Row>
-          <Col size="md-10 md-offset-1">
-
-          </Col>
-        </Row> */}
-
       </Container>
     );
   }

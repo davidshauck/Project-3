@@ -40,22 +40,6 @@ class CheckboxTest extends Component {
         bio: ""      
     };
 
-//   selectAllCheckboxes = isSelected => {
-//     Object.keys(this.state.checkboxes).forEach(checkbox => {
-//       // BONUS: Can you explain why we pass updater function to setState instead of an object?
-//       this.setState(prevState => ({
-//         checkboxes: {
-//           ...prevState.checkboxes,
-//           [checkbox]: isSelected
-//         }
-//       }));
-//     });
-//   };
-
-//   selectAll = () => this.selectAllCheckboxes(true);
-
-//   deselectAll = () => this.selectAllCheckboxes(false);
-
   handleInputChange = event => {
     console.log(event.target.value);
     const { name, value } = event.target;
