@@ -8,41 +8,35 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import TutorDetail from "./pages/TutorDetail";
+import StudentDetail from "./pages/StudentDetail";
 import TutorSignupNew from "./pages/TutorSignupNew";
 import StudentSignupNew from "./pages/StudentSignupNew";
+import SearchProvider from "./SearchProvider"
+import AccountDashboard from "./pages/AccountDashboard"
 import "bootstrap/dist/css/bootstrap.min.css";
-
-/* video component */
-
-import Search from "./pages/Search";
-import Results from "./pages/Results";
-import Saved from "./pages/Saved";
-
-/* video component */
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/students" component={Students} />
-          <Route exact path="/tutors" component={Tutors} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/tutorsignup" component={TutorSignupNew} />
-          <Route exact path="/studentsignup" component={StudentSignupNew} />
-          <Route exact path="/tutors/:id" component={TutorDetail} />
-          <Route exact path="/videos" component={Video} />
-          {/* video component */}
-          <Route exact path="/" component={Search} />
-          <Route exact path="/results" component={Results} />
-          <Route exact path="/saved" component={Saved} />
-          {/* End video component */}
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
-    </Router>
+    <SearchProvider>
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/students" component={Students} />
+            <Route exact path="/tutors" component={Tutors} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/tutorsignup" component={TutorSignupNew} />
+            <Route exact path="/studentsignup" component={StudentSignupNew} />
+            <Route exact path="/tutors/:id" component={TutorDetail} />
+            <Route exact path="/students/:id" component={StudentDetail} />
+            <Route exact path="/account/:id" component={AccountDashboard} />
+            <Route exact path="/videos" component={Video} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      </Router>
+    </SearchProvider>
   );
 }
 

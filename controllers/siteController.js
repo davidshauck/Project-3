@@ -30,6 +30,7 @@ module.exports = {
       }).catch(err => res.status(422).json(err));
   },
   findStudentById: function(req, res) {
+    console.log("AM I HERE?")
     db.Student
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
@@ -70,13 +71,16 @@ module.exports = {
       { $push: { reviews: req.body } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-
-
-
-      // .findOneAndUpdate({ _id: req.params.id }, req.body)
-      // .then(dbModel => res.json(dbModel))
-      // .catch(err => res.status(422).json(err));
   },
+  saveMessage: function(req, res) {
+    console.log("MESSAGE", req.body)
+     db.Student
+    .update(
+       { _id: mongoose.Types.ObjectId(req.body.id)},
+       { $push: { messages: req.body } })
+       .then(dbModel => res.json(dbModel))
+       .catch(err => res.status(422).json(err));
+   },
   removeStudent: function(req, res) {
     db.Student
       .findById({ _id: req.params.id })

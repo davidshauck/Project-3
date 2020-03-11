@@ -17,7 +17,7 @@ class TutorDetail extends Component {
     tutor: {},
     button: "Contact",
     reviewsOn: -1,
-    activeStudent: "Rodney J.",
+    activeStudent: "Achille B.",
     reviewTitle: "",
     reviewBody: "",
     reviews: "",
@@ -80,7 +80,7 @@ starClick = (event) => {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
-    })
+    }).then(window.location.reload(true))
     .catch(err => this.setState({ error: err.message }));
     API.getTutor(this.props.match.params.id)
       .then(res => this.setState({ 
@@ -88,17 +88,16 @@ starClick = (event) => {
         reviewsOn: this.state.reviewsOn *= -1 
       }))
       .catch(err => console.log(err));
-}
+  }
 
-sortReviews = reviews => {
-  // Sort array by date in DESCENDING order
-reviews.sort(function (a, b) {
-  if (a.date > b.date) return -1;
-  if (a.date < b.date) return 1;
-  return 0;
-});
-}
-
+  // sortReviews = reviews => {
+  //   // Sort array by date in DESCENDING order
+  // reviews.sort(function (a, b) {
+  //   if (a.date > b.date) return -1;
+  //   if (a.date < b.date) return 1;
+  //   return 0;
+  // });
+  // }
 
   handleInputChange = event => {
     console.log(event.target.value);
@@ -106,8 +105,6 @@ reviews.sort(function (a, b) {
     this.setState({
       [name]: value
     });
-
-    
   }; 
 
   render() {
@@ -161,7 +158,7 @@ reviews.sort(function (a, b) {
                 button={"Submit"}
                 className={"btn btn-danger review-submit-button"}
                 onClick={(e) => this.submitReview(e)}
-                onclick={(e) => this.window.location.reload()}
+                onclick={() => this.window.location.reload(true)}
               />
               
               </div>

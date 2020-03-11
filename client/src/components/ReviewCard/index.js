@@ -6,7 +6,6 @@ import Stars3 from "./3-stars.jpg";
 import Stars2 from "./2-stars.jpg";
 import Stars1 from "./1-stars.jpg";
 import "./reviewCard.css";
-import Image from "../../components/Image"
 
 function starCount(rating) {
     

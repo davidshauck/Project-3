@@ -1,46 +1,51 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
-// import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
 import { FormBtn } from "../components/Form";
-// import Nav from "../components/Nav"
+import AuthService from "../components/AuthService";
 import "./style.css";
 
 
 class Login extends Component {
-  state = {
-    email: "",
-    password: "",
+  constructor() {
+    super();
+    this.Auth = new AuthService();
   }
 
-  // updateState = state => {
-  //   this.setState({
-  //     ...state
-  //   })
-  // }
+  componentWillMount() {
+    if (this.Auth.loggedIn()) {
+      this.props.history.replace("/");
+    }
+  }
 
-  handleInputChange = event => {
-    console.log(event.target.value);
+  // handleInputChange = event => {
+  //   console.log(event.target.value);
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // }; 
+
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  }; 
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.name && this.state.email) {
-      // API.saveTutor({
-      //   name: this.state.name,
-      //   email: this.state.email,
-      //   photo: this.state.photo
-      // })
-      //   .then(res => this.loadTutors())
-      //   .catch(err => console.log(err));
-    // }
-    console.log(this.state);
+
+    this.Auth.login(this.state.email, this.state.password)
+      .then(res => {
+        // once user is logged in
+        // take them to their profile page
+        this.props.history.replace(`/`);
+      })
+      .then(() => window.location.reload(false))
+      .catch(err => {
+        alert(err.response.data.message);
+      });
   };
 
   render() {
@@ -57,10 +62,11 @@ class Login extends Component {
               <input 
                 name="email" 
                 type="email" 
+                id="email"
                 placeholder="Email address" 
                 className={"form-control login-email-field"}
 
-                onChange={e => this.handleInputChange(e)}
+                onChange={this.handleChange}
               />
               </div>
               <div className="form-group">
@@ -68,13 +74,14 @@ class Login extends Component {
               <input 
                 name="password" 
                 type="password" 
+                id="pwd"
                 placeholder="Password" 
                 className={"form-control login-password-field"}
-                onChange={e => this.handleInputChange(e)}
+                onChange={this.handleChange}
               />
               <FormBtn 
                 button={"Submit"}
-                onClick={e => this.handleFormSubmit(e)}
+                onClick={this.handleFormSubmit}
                 className={"btn btn-success login-submit-button"}
               />
               </div>
