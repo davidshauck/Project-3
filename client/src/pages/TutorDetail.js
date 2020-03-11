@@ -17,7 +17,7 @@ class TutorDetail extends Component {
     tutor: {},
     button: "Contact",
     reviewsOn: -1,
-    activeStudent: "Achille B.",
+    activeStudent: "Bikal T.",
     reviewTitle: "",
     reviewBody: "",
     reviews: "",
