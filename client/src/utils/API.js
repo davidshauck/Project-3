@@ -22,7 +22,7 @@ export default {
     return axios.post("/api/tutors", tutorData);
   },
   getTutors: function(query) {
-    return axios.post("/api/tutors/search", {data: query});
+    return axios.post("/api/tutors/search", { data: query });
   },
   getTutor: function(id) {
     return axios.get("/api/tutors/" + id);
@@ -37,5 +37,10 @@ export default {
         req +
         "&key=AIzaSyDyLzwyfpgQMxCuuUK1VXdvTc34-wMzGi0"
     );
+  },
+
+  // Gets all videos
+  getVideos: function() {
+    return axios.get("/api/videos");
   }
 };
