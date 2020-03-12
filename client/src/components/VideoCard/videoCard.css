@@ -1,5 +1,41 @@
+
 .video-save-button {
+    display: inline-flex;
+    /* float: right; */
+    /* margin-bottom: 16px; */
+    font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
+    color: white;
+    font-size: 13px !important;
+    border-radius: 20px 20px 20px 20px !important;
+    padding: 5px 15px 5px 15px !important; 
+    vertical-align: top;
+    text-align: right;
+    float: right;  
+}
+
+.image {
+    width: 100px;
     display: inline-block;
-    padding: 0px !important;
-    margin: 0px !important;
+    vertical-align: top;
+}
+
+.text {
+    display: inline-block;
+}
+
+.video-title {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.video-description {
+    Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
+    font-size: 13px;
+    width: 100%;
+}
+
+.stars-container {
+    width: 150px;
+    margin: 10px 0 20px 0;
 }

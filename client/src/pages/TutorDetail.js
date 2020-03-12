@@ -8,11 +8,13 @@ import StarRatings from "../components/StarRatings";
 import BlankStar from "./star-blank.jpg";
 import FilledStar from "./star-single.jpg";
 import "./style.css";
+
 class TutorDetail extends Component {
   state = {
     id: this.props.match.params.id,
     error: "",
     tutor: {},
+    student: {},
     button: "Contact",
     reviewsOn: -1,
     activeStudent: "Bikal T.",
@@ -51,7 +53,15 @@ starClick = (event) => {
         reviews: res.data.reviews 
       }))
       .catch(err => console.log(err));
-      console.log("STATE", this.state)
+      console.log("STATE", this.state);
+      // API.getStudent(this.state.loggedInUser.id)
+      // .then(res => this.setState({ 
+      //   student: res.data,
+      //   activeStudent: res.data.first + " " + res.data.last.charAt(0) 
+      // }))
+      // .catch(err => console.log(err));
+
+  
   }
 
   toggleReviews = event => {
@@ -97,6 +107,8 @@ starClick = (event) => {
   }; 
 
   render() {
+    console.log("LOGGED IN USER***", this.state.loggedInUser)
+    console.log("LOGGED IN FIRST***", this.state.tutor)
     return (
       <Container fluid>
         <Row>

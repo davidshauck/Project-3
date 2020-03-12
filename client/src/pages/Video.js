@@ -3,21 +3,33 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { ListItem } from "../components/List";
 import VideoCard from "../components/VideoCard";
-import { FormBtn } from "../components/Form";
 
 //ALl components cans have state, but they also all have props.
 class Video extends Component {
   state = {
-    title: "",
+    title: "javascript",
     toResults: false,
     videos: [],
     search: "",
-    courses: ["Angular", "CSS", "Firebase", "HTML", "Javascript", "Jquery", "Mongo", "Mongoose", "Node.js", "SQL", "React", "Ruby on Rails"],
+    courses: ["Angular", "CSS", "Firebase", "HTML", "Javascript", "Jquery", "MongoDB", "Mongoose DB", "Node.js", "SQL", "React", "Ruby on Rails"],
     videos: [],
     error: true,
     button: "Submit",
     className: "btn btn-success jumbotron-search-button"
   };
+
+  componentWillMount() {
+    API.getNewVideos(this.state.title)
+        .then(res => {
+          console.log("RESULTS ", res.data.items);
+          this.setState({
+            ...this.state,
+            toResults: true,
+            videos: res.data.items
+          });
+        })
+        .catch(err => console.log(err));
+  }
 
   handleInputChange = event => {
     event.preventDefault();
@@ -85,7 +97,7 @@ class Video extends Component {
                 {this.state.videos.length ? (
                   <div className="list-overflow-container">
                     <ul className="list-group">
-                      <h2>TOP WEBINARS</h2>
+                      <h2 className="webinars-title">TOP WEBINARS ON {this.state.title.toUpperCase()}</h2>
                       {this.state.videos.map(video => (
                         <ListItem key={video.etag}>
                           <VideoCard 

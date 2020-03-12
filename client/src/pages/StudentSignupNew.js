@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Checkbox from "../components/Checkbox";
 import { Input, Select } from "../components/Form"
 import API from "../utils/API";
-import Nav from "../components/Nav"
+// import Nav from "../components/Nav"
 
 
 
@@ -21,7 +21,7 @@ const OPTIONS1 = [
     }
 ]
 
-const OPTIONS = [ "Javascript", "Jquery", "React", "Ruby on Rails","SQL", "Mongo", "Firebase", "Node.js", "HTML", "CSS" ]
+// const OPTIONS = [ "Javascript", "Jquery", "React", "Ruby on Rails","SQL", "Mongo", "Firebase", "Node.js", "HTML", "CSS" ]
 
 class StudentSignupNew extends Component {
   state = {
@@ -84,9 +84,7 @@ class StudentSignupNew extends Component {
         bio: this.state.bio,
         interests: this.state.interests,
         level: this.state.level
-      })
-    console.log(this.state)
-      
+      })      
   };
 
   createCheckbox = option => (
@@ -102,25 +100,11 @@ class StudentSignupNew extends Component {
     console.log("----------", category)
   }
 
-  //Obj.keys, then loop over that and push the 'true' to an array
-
-// createCheckboxes = () => OPTIONS.map(this.createCheckbox);
 createCheckboxes = () => {
   const toReturn = [];
   OPTIONS1.forEach( (option, index) => {
-    // console.log("----------", option.category)
     this.foo(option.category)
-
-  // console.log("OPTION", option)
   toReturn.push(...option.data.map((o) => this.createCheckbox(o)))
-    // option.map(() => ()
-    //     <Checkbox
-    //   label={option}
-    //   isSelected={this.state.checkboxes[option]}
-    //   onCheckboxChange={this.handleCheckboxChange}
-    //   key={option}
-    // />
-    // );
   })
 
 return toReturn}

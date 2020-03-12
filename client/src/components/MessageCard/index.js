@@ -1,10 +1,10 @@
 import React from "react";
 import { List, ListItem } from "../List"
+import { FormBtn } from "../Form"
 import "./messageCard.css";
 
 function MessageCard(props) {
   
-  console.log("REVIEW CARD", props)
   return (
     <div>
       <h3 className="messages-header">Messages</h3>
@@ -16,15 +16,16 @@ function MessageCard(props) {
                 {props.messages.map(message => (
                   
                   <ListItem key={message.name}>
-                      <div class="name">Name: <span class="plain">{message.name}</span></div>
-                      <div class="name">Title: <span class="plain">{message.title}</span></div>
-                      <div class="name">Message: <span class="plain">{message.message}</span></div>
-                      <hr />               
+                      <div className="name">Name: <span className="plain">{message.name}</span></div>
+                      <div className="name">Title: <span className="plain">{message.title}</span></div>
+                      <div className="name">Message: <span className="plain">{message.message}</span></div>
+                      <FormBtn button={"Reply"} className="btn btn-secondary reply-archive" /> <FormBtn button={"Archive"} className="btn btn-secondary reply-archive" />
                   </ListItem>
+                  
                 ))}
               </List>
             ) : (
-              <h3 class="no-messages">You have no messages</h3>
+              <h3 className="no-messages">You have no messages</h3>
             )}
       </div>
     </div>

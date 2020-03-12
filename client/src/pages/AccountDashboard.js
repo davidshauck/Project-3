@@ -52,7 +52,7 @@ class AccountDashboard extends Component {
               {/* <List> */}
               
               <div className="box list-overflow-container" style={{margin: "0 10% 0 10%"}}>
-              <h3>Your dashboard</h3>
+              <h3 class="dashboard-title">YOUR DASHBOARD</h3>
             <StudentCard 
                first={this.state.student.first}
                last={this.state.student.last}

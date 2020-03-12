@@ -36,7 +36,7 @@ function SearchForm() {
             className={context.state.className}
             value={context.state.search}
             onClick={context.state.handleFormSubmit}
-            // onClick={event =>  context.state.history.push('/students')}
+            // onClick={this.state.history.push('/students')}
           />
           </React.Fragment>
           )}

@@ -1,7 +1,8 @@
 import React from "react";
 import { FormBtn } from "../Form"
+import "./videoCard.css"
 // import Stars5 from "./5-stars.jpg";
-// import Stars4 from "./4-stars.jpg";
+import Stars4 from "./4-stars.jpg";
 // import Stars3 from "./3-stars.jpg";
 // import Stars2 from "./2-stars.jpg";
 // import Stars1 from "./1-stars.jpg";
@@ -40,9 +41,10 @@ function VideoCard(props) {
           <div className="col-3 image">
           <img src={props.thumbnail} alt="..." className="img-thumbnail"></img>
           </div>
-          <div className="col-6 text">
-          <div className="video-title" src={props.url}>{props.title}</div>
-          <div className="video-description">{props.description}</div>
+          <div className="col-7 text">
+            <a className="video-title" href={props.url} target="_blank">{props.title}</a>
+            <div className="video-description">{props.description}</div>
+            <img className="stars-container" src={Stars4} />
           </div>
           {/* <img className="stars-container" src={starCount(props.overallRating)} /> */}
           {/* <div className="rating">
