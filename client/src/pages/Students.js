@@ -8,12 +8,7 @@ import { List, ListItem } from "../components/List";
 import TutorCard from "../components/TutorCard";
 import SearchForm from "../components/SearchForm";
 import { SearchConsumer } from '../SearchProvider'
-
-
-
-
 class Students extends Component {
-
   render() {
     return (
       <div>

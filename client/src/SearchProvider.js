@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import API from "./utils/API";
 import AuthService from "./components/AuthService";
-
+import {withRouter} from "react-router-dom";
 
 
 // Set Up The Initial Context
@@ -35,8 +35,10 @@ class SearchProvider extends Component {
         handleInputChange: (event) => {
         this.setState({ ...this.state, search: event.target.value });
         },
+
         handleFormSubmit: (event) => {
-        event.preventDefault();
+      
+          event.preventDefault();
         // history.push("/students");
         console.log("SEARCH", this.state.search)
         API.getTutors(this.state.search)
@@ -45,10 +47,13 @@ class SearchProvider extends Component {
                 throw new Error(res.data.message);
               }
               console.log("RESDATA", res.data)
-            this.setState({ ...this.state, tutors: res.data, error: false });
+            this.setState({ ...this.state, tutors: res.data, error: false }, () =>{
+              this.props.history.push("/students")
+            });
+      
             })
             // .then(() => console.log("HELLO", this.state))
-            .then(() => this.state.history.push("/students"))
+
             .catch(err => this.setState({ ...this.state, error: err.message }));
         }, 
         loadTutors: () => {
@@ -96,4 +101,4 @@ class SearchProvider extends Component {
     )
   }
 }
-export default SearchProvider;
+export default withRouter(SearchProvider);

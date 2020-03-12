@@ -17,8 +17,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
+    <Router>
     <SearchProvider>
-      <Router>
         <div>
           <Nav />
           <Switch>
@@ -35,8 +35,8 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
         </div>
-      </Router>
     </SearchProvider>
+    </Router>
   );
 }
 

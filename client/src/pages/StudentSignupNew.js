@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Checkbox from "../components/Checkbox";
 import { Input, Select } from "../components/Form"
 import API from "../utils/API";
-// import Nav from "../components/Nav"
-
+import { Link } from "react-router-dom";
 
 
 const OPTIONS1 = [
@@ -174,9 +173,11 @@ return toReturn}
         <div className="mt-2">
             <textarea className="form-control" rows="10" name="bio" onChange={e => this.handleInputChange(e)} placeholder="Add any additional details here" />
             <div>
-                <button type="submit" className="btn btn-primary">
+              {/* <Link push to="/login"> */}
+                <button type="submit" href="/login" className="btn btn-primary">
                     Save
                 </button>
+              {/* </Link> */}
             </div>
         </div>
     </form>
