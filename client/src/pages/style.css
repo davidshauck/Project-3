@@ -106,3 +106,20 @@ form.search button[type="submit"] {
     width: 150px;
     margin: 10px 0 20px 0;
 }
+
+.dashboard-title {
+    color: white;
+    background-color: #6c757d;
+    padding: 15px;
+    border-radius: 5px !important;
+}
+
+.webinars-title {
+    text-align: left;
+}
+
+@media screen and (min-width: 1420px) {
+    body {
+      background-size: 2000px;
+    }
+  }

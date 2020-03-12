@@ -8,7 +8,6 @@ import Stars1 from "./1-stars.jpg";
 import Stars0 from "./0-stars.jpg";
 import "./tutorCard.css";
 
-
 function starCount(rating) {
     
   console.log("RATING VALUE", rating)
@@ -59,7 +58,7 @@ function TutorCard(props) {
             { overallRating ? ( parseFloat(overallRating).toFixed(1) + " ("+ holder.length + ")" ) : (<div> No reviews yet</div>)}</div>
           </div>
           <FormBtn
-            button={props.button}
+            button={"Contact"}
             className={"btn btn-secondary tutor-contact-button"}
           />
       </div>

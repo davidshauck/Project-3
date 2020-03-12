@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../AuthService";
 import API from "../../utils/API";
-// import { SearchConsumer } from '../SearchProvider'
-
 import "./navbar.css";
 
 let loggedInUser;
@@ -30,25 +28,25 @@ getUserInfo = () => {
   }
 
 render() {
-
-  
-
   const Auth = new AuthService();
 
-  function showNavigation() {
-
-//     <SearchConsumer>
+//   <SearchConsumer>
 //   {context => (
 //     <React.Fragment>
 
-// <div>
+// {this.context.Auth.loggedIn() ? (
+//   loggedInUser = this.context.state.Auth.getProfile()
+
   
-// </div>
+
+
+// ) : ( console.log("NOOPE"))}
   
 //     </React.Fragment>
 //     )}
 //     </SearchConsumer>
-
+  
+  function showNavigation() {
     if (Auth.loggedIn()) {
       
       loggedInUser = Auth.getProfile();

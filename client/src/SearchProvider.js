@@ -1,7 +1,9 @@
 // src/providers/SearchProvider.js
 import React, { Component } from 'react'
 import API from "./utils/API";
-import { useHistory } from 'react-router-dom';
+import AuthService from "./components/AuthService";
+import {withRouter} from "react-router-dom";
+
 
 // Set Up The Initial Context
 const SearchContext = React.createContext()
@@ -11,8 +13,18 @@ export const SearchConsumer = SearchContext.Consumer
 class SearchProvider extends Component {
   constructor (props) {
     super(props)
+    this.Auth = new AuthService();
   }
+
+  // componentWillMount() {
+  //   if (this.Auth.loggedIn()) {
+  //     this.props.history.replace("/");
+  //   }
+  // }
+
     state = {
+        userName: "",
+        // loggedInUser: this.Auth.getProfile(),
         search: "",
         courses: ["Angular", "CSS", "Firebase", "HTML", "Javascript", "Jquery", "Mongo", "Mongoose", "Node.js", "SQL", "React", "Ruby on Rails"],
         results: [],
@@ -21,10 +33,12 @@ class SearchProvider extends Component {
         button: "Submit",
         className: "btn btn-success jumbotron-search-button",
         handleInputChange: (event) => {
-        this.setState({...this.state, search: event.target.value });
+        this.setState({ ...this.state, search: event.target.value });
         },
+
         handleFormSubmit: (event) => {
-        event.preventDefault();
+      
+          event.preventDefault();
         // history.push("/students");
         console.log("SEARCH", this.state.search)
         API.getTutors(this.state.search)
@@ -33,10 +47,13 @@ class SearchProvider extends Component {
                 throw new Error(res.data.message);
               }
               console.log("RESDATA", res.data)
-            this.setState({ ...this.state, tutors: res.data, error: false });
+            this.setState({ ...this.state, tutors: res.data, error: false }, () =>{
+              this.props.history.push("/students")
+            });
+      
             })
             // .then(() => console.log("HELLO", this.state))
-            .then(() => this.state.history.push("/students"))
+
             .catch(err => this.setState({ ...this.state, error: err.message }));
         }, 
         loadTutors: () => {
@@ -47,6 +64,31 @@ class SearchProvider extends Component {
             })
             .catch(err => console.log(err));
         },
+        getUserInfo: (user) => {
+          API.getStudent(user)
+          .then(res => this.setState({ 
+            userName: res.data.first, 
+            
+          })).then(console.log("USERNAME ", this.state.userName))
+          .catch(err => console.log(err));
+          // console.log("USERENAME", loggedInUserName[0])
+          // return loggedInUserName;
+          // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
+        },
+        handleLogin: event => {
+          event.preventDefault();
+      
+          this.Auth.login(this.state.email, this.state.password)
+            .then(res => {
+              // once user is logged in
+              // take them to their profile page
+              this.props.history.replace(`/`);
+            })
+            .then(() => window.location.reload(false))
+            .catch(err => {
+              alert(err.response.data.message);
+            });
+        }
       };
 
   render () {
@@ -59,4 +101,4 @@ class SearchProvider extends Component {
     )
   }
 }
-export default SearchProvider;
+export default withRouter(SearchProvider);

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import StudentCard from "../components/StudentCard";
-import MessageCard from "../components/MessageCard";
+// import MessageCard from "../components/MessageCard";
 import { TextArea, FormBtn, Input } from "../components/Form";
 import { Button, Modal } from 'react-bootstrap';
 
