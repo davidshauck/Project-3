@@ -10,17 +10,12 @@ const SearchContext = React.createContext()
 // Create an exportable consumer that can be injected into components
 export const SearchConsumer = SearchContext.Consumer
 // Create the provider using a traditional React.Component class
+
 class SearchProvider extends Component {
   constructor (props) {
     super(props)
     this.Auth = new AuthService();
   }
-
-  // componentWillMount() {
-  //   if (this.Auth.loggedIn()) {
-  //     this.props.history.replace("/");
-  //   }
-  // }
 
     state = {
         userName: "",
@@ -89,6 +84,22 @@ class SearchProvider extends Component {
             });
         }
       };
+
+      componentDidMount() {
+        API.getTutors(this.state.search)
+            .then(res => {
+              if (res.data.status === "error") {
+                throw new Error(res.data.message);
+              }
+              console.log("RESDATA", res.data)
+            this.setState({ ...this.state, tutors: res.data, error: false });
+      
+            })
+            // .then(() => console.log("HELLO", this.state))
+
+            .catch(err => this.setState({ ...this.state, error: err.message }));
+
+      }
 
   render () {
     return (
