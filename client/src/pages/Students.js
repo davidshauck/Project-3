@@ -9,6 +9,7 @@ import TutorCard from "../components/TutorCard";
 import SearchForm from "../components/SearchForm";
 import { SearchConsumer } from '../SearchProvider'
 class Students extends Component {
+
   render() {
     return (
       <div>
@@ -49,7 +50,7 @@ class Students extends Component {
                       </List>
                     ) : (
                       <div className="box">
-                      <h3>No Results to Display</h3>
+                      <h4 className="webinars-headline">Sorry, there are no tutors availale in that subject right now.</h4>
                       </div>
                     )}
                     </React.Fragment>
