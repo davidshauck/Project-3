@@ -44,7 +44,7 @@ class Login extends Component {
       })
       .then(() => window.location.reload(false))
       .catch(err => {
-        alert(err.response.data.message);
+        console.log(err.response.data.message);
       });
   };
 
