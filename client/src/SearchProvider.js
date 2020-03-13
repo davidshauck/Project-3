@@ -99,7 +99,7 @@ class SearchProvider extends Component {
 
             .catch(err => this.setState({ ...this.state, error: err.message }));
 
-      }
+      };
 
   render () {
     return (
