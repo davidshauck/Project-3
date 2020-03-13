@@ -6,7 +6,7 @@ export default class AuthService {
     console.log("LOGIN INFO: ", email, password)
     // Get a token
     return axios
-      .post("http://localhost:3000/api/students/login", {
+      .post("https://cors-anywhere.herokuapp.com/http://localhost:3000/api/students/login", {
         email: email,
         password: password
       })
