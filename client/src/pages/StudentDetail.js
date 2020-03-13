@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import StudentCard from "../components/StudentCard";
@@ -62,7 +61,7 @@ handleShow = (e) => {
     }
     console.log(newMessage)
     // this.state.messageToggle *= -1;
-    API.saveMessage(newMessage)
+    API.saveStudentMessage(newMessage)
     .then(res => {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
@@ -98,7 +97,7 @@ handleShow = (e) => {
                first={this.state.student.first}
                last={this.state.student.last}
                photo={this.state.student.photo}
-               interests={this.state.student.interests}
+               categories={this.state.student.categories}
                bio={this.state.student.bio}
                button={this.state.button} 
                level={this.state.student.level}
@@ -128,24 +127,24 @@ handleShow = (e) => {
                 onChange={e => this.handleInputChange(e)}
               />
 
-            <Modal show={this.state.show} onHide={this.handleClose}>
-                {/* <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header> */}
-                <Modal.Body>Your message has been sent</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" 
-                        onClick={async (e) => {
+              <Modal show={this.state.show} onHide={this.handleClose}>
+                  {/* <Modal.Header closeButton>
+                      <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header> */}
+                  <Modal.Body>Your message has been sent</Modal.Body>
+                  <Modal.Footer>
+                      <Button variant="secondary" 
+                          onClick={async (e) => {
                             await this.handleClose(e);
                             await this.toggleMessages(e);
-                        }}>
-                        Close
-                    </Button>
-                    {/* <Button variant="primary" onClick={this.handleClose}>
-                        Save Changes
-                    </Button> */}
-                </Modal.Footer>
-            </Modal>
+                          }}>
+                          Close
+                      </Button>
+                      {/* <Button variant="primary" onClick={this.handleClose}>
+                          Save Changes
+                      </Button> */}
+                  </Modal.Footer>
+              </Modal>
 
               <FormBtn 
                 button={"Submit"}

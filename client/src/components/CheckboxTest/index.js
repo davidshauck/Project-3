@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Checkbox from "../Checkbox";
 import { Input } from "../Form"
 
-const OPTIONS = ["Javascript", "Jquery", "React", "Ruby on Rails", "SQL", "Mongo", "Firebase", "Node.js", "HTML", "CSS"];
+const OPTIONS = ["Angular", "Javascript", "Jquery", "React", "Ruby on Rails", "SQL", "MongoDB", "MongooseDB", "Firebase", "Node.js", "HTML", "CSS"];
 
 class CheckboxTest extends Component {
   state = {
@@ -67,7 +67,7 @@ class CheckboxTest extends Component {
     return (
       <div>
       <div className="box">
-      <h2>Create your account</h2>
+      <h2>Create your profile</h2>
       <form className="form-group">
         <Input 
             name="first" 

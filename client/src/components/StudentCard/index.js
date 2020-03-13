@@ -1,8 +1,6 @@
 import React from "react";
 import "./studentCard.css";
 import { FormBtn } from "../Form";
-import { PromiseProvider } from "mongoose";
-
 
 function StudentCard(props) {
   return (
@@ -14,8 +12,12 @@ function StudentCard(props) {
           <div className="col-7 text">
               <div className="name">{props.first} {props.last} 
               </div>
-              <div className="interests"><b>Need help in:</b> {props.interests}</div>
+            { props.status === 1 ? (
+              <div className="interests"><b>Need help in:</b> {(props.categories)}</div>
+              ) : (<div className="interests"><b>Expertise:</b> {(props.categories)}</div>)}
+              { props.status === 1 ? (
               <div className="level"><b>Level:</b> {props.level}</div>
+              ) : (<div></div>)}
               <div className="goals"><b>Goals:</b> {props.bio}</div>     
           </div>
           <FormBtn 

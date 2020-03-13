@@ -26,7 +26,7 @@ class SearchProvider extends Component {
         userName: "",
         // loggedInUser: this.Auth.getProfile(),
         search: "",
-        courses: ["Angular", "CSS", "Firebase", "HTML", "Javascript", "Jquery", "Mongo", "Mongoose", "Node.js", "SQL", "React", "Ruby on Rails"],
+        courses: ["Angular", "CSS", "Firebase", "HTML", "Javascript", "Jquery", "MongoDB", "MongooseDB", "Node.js", "SQL", "React", "Ruby on Rails"],
         results: [],
         tutors: [],
         error: true,
@@ -37,8 +37,7 @@ class SearchProvider extends Component {
         },
 
         handleFormSubmit: (event) => {
-      
-          event.preventDefault();
+        event.preventDefault();
         // history.push("/students");
         console.log("SEARCH", this.state.search)
         API.getTutors(this.state.search)
@@ -64,17 +63,17 @@ class SearchProvider extends Component {
             })
             .catch(err => console.log(err));
         },
-        getUserInfo: (user) => {
-          API.getStudent(user)
-          .then(res => this.setState({ 
-            userName: res.data.first, 
+        // getUserInfo: (user) => {
+        //   API.getStudent(user)
+        //   .then(res => this.setState({ 
+        //     userName: res.data.first, 
             
-          })).then(console.log("USERNAME ", this.state.userName))
-          .catch(err => console.log(err));
-          // console.log("USERENAME", loggedInUserName[0])
-          // return loggedInUserName;
-          // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
-        },
+        //   })).then(console.log("USERNAME ", this.state.userName))
+        //   .catch(err => console.log(err));
+        //   // console.log("USERENAME", loggedInUserName[0])
+        //   // return loggedInUserName;
+        //   // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
+        // },
         handleLogin: event => {
           event.preventDefault();
       

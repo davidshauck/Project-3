@@ -5,7 +5,7 @@ require("dotenv").config();
 module.exports = {
   logUserIn: function (email, password) {
     return new Promise((resolve, reject) => {
-      db.Student.findOne({
+      db.User.findOne({
         email: email
       }).then(student => {
         student.verifyPassword(password, (err, isMatch) => {

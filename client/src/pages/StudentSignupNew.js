@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import Checkbox from "../components/Checkbox";
 import { Input, Select } from "../components/Form"
+import { FormBtn } from "../components/Form";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+import AuthService from "../components/AuthService";
+
 
 
 const OPTIONS1 = [
     {
         category: "Front End",
-        data: [ "Javascript", "Jquery", "React", "Ruby on Rails"],
+        data: [ "Angular", "Javascript", "Jquery", "React", "Ruby on Rails"],
     },
     {
         category: "Database",
-        data: [ "SQL", "Mongo", "Firebase", "Node.js" ],
+        data: [ "SQL", "MongoDB", "Mongoose", "Firebase", "Node.js" ],
     },
     {
         category: "Design",
@@ -23,6 +25,12 @@ const OPTIONS1 = [
 // const OPTIONS = [ "Javascript", "Jquery", "React", "Ruby on Rails","SQL", "Mongo", "Firebase", "Node.js", "HTML", "CSS" ]
 
 class StudentSignupNew extends Component {
+
+  constructor() {
+    super();
+    this.Auth = new AuthService();
+  }
+
   state = {
     checkboxes: OPTIONS1.reduce(
       (options, option) => ({
@@ -35,10 +43,11 @@ class StudentSignupNew extends Component {
         last: "",
         email: "",
         password: "",
-        interests: [],
+        categories: [],
         photo: "",
         bio: "",
-        level: ""
+        level: "No coding experience",
+        disabledStatus: true
     };
 
   handleInputChange = event => {
@@ -72,7 +81,7 @@ class StudentSignupNew extends Component {
     Object.keys(this.state.checkboxes)
       .filter(checkbox => this.state.checkboxes[checkbox])
       .forEach(checkbox => {
-        this.state.interests.push(checkbox);
+        this.state.categories.push(checkbox);
       });
       API.saveStudent({
         first: this.state.first,
@@ -81,9 +90,30 @@ class StudentSignupNew extends Component {
         password: this.state.password,
         photo: this.state.photo,
         bio: this.state.bio,
-        interests: this.state.interests,
-        level: this.state.level
-      })      
+        categories: this.state.categories,
+        level: this.state.level,
+        status: 1
+      }).then(res => {
+        if (res.data._id) {
+          let disabledStatus = false;
+          this.setState({ ...this.state, disabledStatus: disabledStatus })
+        }
+      })
+  }
+
+  handleLogin = event => {
+    event.preventDefault();
+
+    this.Auth.login(this.state.email, this.state.password)
+      .then(res => {
+        // once user is logged in
+        // take them to their profile page
+        this.props.history.replace(`/`);
+      })
+      .then(() => window.location.reload(false))
+      .catch(err => {
+        console.log(err.response.data.message);
+      });
   };
 
   createCheckbox = option => (
@@ -95,9 +125,9 @@ class StudentSignupNew extends Component {
     />
   );
 
-  foo = (category) => {
-    console.log("----------", category)
-  }
+  foo = (category) => (
+   <div>-----------</div>
+  )
 
 createCheckboxes = () => {
   const toReturn = [];
@@ -111,7 +141,7 @@ return toReturn}
   render() {
     return (
         <div className="list-overflow-container register-box">
-        <h2>Create your account</h2>
+        <h2>Create your profile</h2>
       <form onSubmit={this.handleFormSubmit}>
         <Input 
             name="first" 
@@ -170,15 +200,49 @@ return toReturn}
         />
         </div>
 
-        <div className="mt-2">
+        <div className="col-12">
             <textarea className="form-control" rows="10" name="bio" onChange={e => this.handleInputChange(e)} placeholder="Add any additional details here" />
-            <div>
+            <form className="div-test">
+
               {/* <Link push to="/login"> */}
-                <button type="submit" href="/login" className="btn btn-primary">
+                <button type="submit" className="btn btn-secondary save-button">
                     Save
                 </button>
+                {/* <button type="submit" href="/login" className="btn btn-success login-button" disabled={this.state.disabledStatus} onClick={() => this.props.history.push("/login")} >
+                    Login
+                </button> */}
+                { !this.state.disabledStatus ? (
+              <div>
+              <input 
+                name="email" 
+                type="email" 
+                id="email"
+                placeholder="Email address" 
+                className={"form-control login-signup-email-field"}
+
+                onChange={this.handleChange}
+              />
+              {/* </div>
+              <div className="form-group"> */}
+
+              <input 
+                name="password" 
+                type="password" 
+                id="pwd"
+                placeholder="Password" 
+                className={"form-control login-signup-password-field"}
+                onChange={this.handleChange}
+              />
+              <FormBtn 
+                button={"Submit"}
+                onClick={this.handleLogin}
+                className={"btn btn-success login-submit-button"}
+              />
+              </div>
+                ) : (<div></div>)}
+                </form>
+
               {/* </Link> */}
-            </div>
         </div>
     </form>
 

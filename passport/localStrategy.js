@@ -6,7 +6,7 @@ const strategy = new LocalStrategy(
 		usernameField: 'email' // not necessary, DEFAULT
 	},
 	function(email, password, done) {
-		db.Student.findOne({ email: email }, (err, user) => {
+		db.User.findOne({ email: email }, (err, user) => {
 			if (err) {
 				return done(err)
 			}

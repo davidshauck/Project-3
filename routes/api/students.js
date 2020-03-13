@@ -15,7 +15,7 @@ router.route("/login").post((req, res) => {
 // Matches with "/api/students"
 router.route("/")
   .get(siteController.findAllStudents)
-  .put(siteController.saveMessage)
+  .put(siteController.saveStudentMessage)
   .post(siteController.createStudent);
 
 // Matches with "/api/students/:id"
@@ -27,7 +27,7 @@ router.route("/:id")
 // Any route with isAuthenticated is protected and you need a valid token
 // to access
 router.route("account/:id").get(isAuthenticated, (req, res) => {
-  db.Student.findById(req.params.id)
+  db.User.findById(req.params.id)
     .then(data => {
       if (data) {
         res.json(data);
@@ -37,8 +37,5 @@ router.route("account/:id").get(isAuthenticated, (req, res) => {
     })
     .catch(err => res.status(400).send(err));
 });
-
-module.exports = router;
-
 
 module.exports = router;

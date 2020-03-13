@@ -37,7 +37,7 @@ class Students extends Component {
                             first={tutor.first}
                             last={tutor.last}
                             photo={tutor.photo}
-                            expertise={tutor.expertise}
+                            categories={tutor.categories}
                             bio={tutor.bio}
                             reviews={tutor.reviews}
                             rating={tutor.rating}   

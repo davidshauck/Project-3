@@ -42,16 +42,17 @@ function ReviewCard(props) {
                 {props.reviews.map(review => (
                   
                   <ListItem key={review.name}>
-                      <div class="name">Name: <span class="plain">{review.name}</span></div>
-                      <div class="name">Title: <span class="plain">{review.title}</span></div>
-                      <div class="name">Review: <span class="plain">{review.review}</span></div>
-                      <img class="stars-container" src={starCount(review.rating)} />     
+                      <div className="name">Name: <span className="plain">{review.name}</span></div>
+                      <div className="name">Title: <span className="plain">{review.title}</span></div>
+                      <div className="name">Review: <span className="plain">{review.review}</span></div>
+                      <div className="name">Date: <span className="plain">{review.date}</span></div>
+                      <img className="stars-container" src={starCount(review.rating)} />     
                       <hr />               
                   </ListItem>
                 ))}
               </List>
             ) : (
-              <h3 class="no-reviews">{props.first} has no reviews yet</h3>
+              <h3 className="no-reviews">{props.first} has no reviews yet</h3>
             )}
       </div>
     </div>

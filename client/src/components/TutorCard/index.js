@@ -51,7 +51,7 @@ function TutorCard(props) {
           <div className="tutor-name">{props.first} {props.last}
           </div>
 
-          <div className="expertise">Expertise: {(props.expertise || []).join(", ")}</div>
+          <div className="expertise">Expertise: {(props.categories || []).join(", ")}</div>
           <div className="goals">Bio: {props.bio}</div>
           <img className="stars-container" src={starCount(overallRating)} />
           <div className="rating">

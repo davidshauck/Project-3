@@ -15,17 +15,17 @@ class Nav extends React.Component {
     userName: ""
   }
 
-getUserInfo = () => {
-    API.getStudent(loggedInUser.id)
-    .then(res => this.setState({ 
-      userName: res.data.first, 
+// getUserInfo = () => {
+//     API.getStudent(loggedInUser.id)
+//     .then(res => this.setState({ 
+//       userName: res.data.first, 
       
-    })).then(console.log("USERNAME ", this.state.userName))
-    .catch(err => console.log(err));
-    // console.log("USERENAME", loggedInUserName[0])
-    // return loggedInUserName;
-    // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
-  }
+//     })).then(console.log("USERNAME ", this.state.userName))
+//     .catch(err => console.log(err));
+//     // console.log("USERENAME", loggedInUserName[0])
+//     // return loggedInUserName;
+//     // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
+//   }
 
 render() {
   const Auth = new AuthService();
@@ -64,11 +64,11 @@ render() {
             <div className="nav-link">Webinars</div>
           </li>
           </Link>
-          {/* <Link push to="/tutors">
+          <Link push to="/">
           <li className="nav-item">
-            <div className="nav-link">Job leads</div>
+            <div className="nav-link">Ask the class</div>
           </li>
-          </Link> */}
+          </Link>
           <Link push to="/students">
           <li className="nav-item">
             <div className="nav-link">Find tutors</div>
@@ -99,11 +99,11 @@ render() {
         <div className="nav-link">Webinars</div>
       </li>
       </Link>
-      {/* <Link push to="/tutors">
-      <li className="nav-item">
-        <div className="nav-link">Job leads</div>
-      </li>
-      </Link> */}
+      <Link push to="/">
+        <li className="nav-item">
+          <div className="nav-link">Ask the class</div>
+        </li>
+      </Link>
       <Link push to="/students">
       <li className="nav-item">
         <div className="nav-link">Find tutors</div>
