@@ -4,6 +4,8 @@ import { FormBtn } from "../Form"
 import "./messageCard.css";
 
 function MessageCard(props) {
+
+  console.log("MESSAGES ", props.messages)
   
   return (
     <div>
