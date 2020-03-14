@@ -20,7 +20,7 @@ class TutorDetail extends Component {
     button: "Contact",
     reviewsOn: -1,
     messagesOn: -1,
-    activeStudent: "David H.",
+    activeStudent: "Achille B.",
     reviewTitle: "",
     reviewBody: "",
     messageTitle: "",

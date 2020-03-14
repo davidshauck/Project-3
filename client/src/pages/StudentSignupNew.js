@@ -108,7 +108,7 @@ class StudentSignupNew extends Component {
       .then(res => {
         // once user is logged in
         // take them to their profile page
-        this.props.history.replace(`/`);
+        this.props.history.replace(`/students`);
       })
       .then(() => window.location.reload(false))
       .catch(err => {

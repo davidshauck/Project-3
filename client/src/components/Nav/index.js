@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../AuthService";
-import API from "../../utils/API";
 import "./navbar.css";
 
 let loggedInUser;
@@ -56,7 +55,8 @@ render() {
       // console.log("NAME ", newUser.name)
       // console.log("NEW NEW LOGGED IN USER ", loggedInUser)
       return (
-   
+        
+        
       <div className="navbar-buttons col-7">
         <ul className="navbar-nav">
           <Link push to="/videos">
