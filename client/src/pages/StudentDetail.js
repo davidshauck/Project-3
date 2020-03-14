@@ -17,7 +17,7 @@ class StudentDetail extends Component {
     messageTitle: "",
     messageBody: "",
     messageToggle: -1,
-    activeTutor: "Donald T.",
+    activeTutor: "Justin R.",
     messages: "",
     messageSent: ""
   };
