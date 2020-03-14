@@ -7,6 +7,9 @@ router.route("/")
   .put(siteController.saveReview)
   .post(siteController.createTutor);
 
+  router.route("/messages")
+    .post(siteController.saveTutorMessage)
+
 router.route("/search").post(siteController.findAllTutors)
 // Matches with "/api/tutors/:id"
 

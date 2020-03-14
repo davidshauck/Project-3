@@ -20,7 +20,7 @@ class Jumbotron extends Component {
         
         <SearchForm />
         
-        <a href="/login"><span className="spacer">Sign in</span></a>|<span className="spacer"><a href="/student">Create account</a></span>
+        <a href="/login"><span className="spacer">Sign in</span></a>|<span className="spacer"><a href="/studentsignup">Create account</a></span>
 
     </div>
   );

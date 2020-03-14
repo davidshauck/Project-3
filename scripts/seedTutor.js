@@ -16,7 +16,7 @@ const tutorSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UN08XVAMD-91d7f7c5aa77-512",
     password: "444",
     status: 2,
-    expertise: [
+    categories: [
       "Javascript",
       "React",
       "Angular",
@@ -40,7 +40,7 @@ const tutorSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMKKNMWAW-aed8cd16208f-512",
     password: "333",
     status: 2,
-    expertise: [
+    categories: [
       "Mongo",
       "SQL",
       "Node.js",
@@ -58,7 +58,7 @@ const tutorSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMYD1375K-526a14ab8189-512",
     password: "222",
     status: 2,
-    expertise: [
+    categories: [
       "Ruby on Rails",
       "React",
       "Jquery",
@@ -76,7 +76,7 @@ const tutorSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMS1L0BQ9-3df4a04a4703-512",
     password: "111",
     status: 2,
-    expertise: [
+    categories: [
       "Javascript",
       "Jquery",
       "HTML",
@@ -113,7 +113,7 @@ db.Tutor
       photo: "https://ca.slack-edge.com/TMU2T4ECF-UMS1L0BQ9-3df4a04a4703-512",
       password: "111",
       status: 2,
-      expertise: [
+      categories: [
         "Javascript",
         "Jquery",
         "HTML",

@@ -17,7 +17,7 @@ const studentSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMYCUP8E5-f99c481e727c-512",
     level: "beginner",
     status: 1,
-    interests: [
+    categories: [
       "javacript", 
       "react"
     ],
@@ -33,7 +33,7 @@ const studentSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMTFVUGQZ-f8c64f387f92-512",
     level: "advanced",
     status: 1,
-    interests: [
+    categories: [
       "angular", 
       "mongo"
     ],
@@ -49,7 +49,7 @@ const studentSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMPL144FM-89deb0011ed2-512",
     level: "advanced",
     status: 1,
-    interests: [
+    categories: [
       "Javascript",
       "MySQL",
       "CSS"
@@ -66,7 +66,7 @@ const studentSeed = [
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UN13LV7HT-9175ac33b69b-512",
     level: "advanced",
     status: 1,
-    interests: [
+    categories: [
       "Javascript",
       "Jquery",
       "HTML",
@@ -100,7 +100,7 @@ db.Student
         photo: "https://ca.slack-edge.com/TMU2T4ECF-UMYCUP8E5-f99c481e727c-512",
         level: "beginner",
         status: 1,
-        interests: [
+        categories: [
           "javacript", 
           "react"
         ],
@@ -117,7 +117,7 @@ db.Student
         photo: "https://ca.slack-edge.com/TMU2T4ECF-UMTFVUGQZ-f8c64f387f92-512",
         level: "advanced",
         status: 1,
-        interests: [
+        categories: [
           "angular", 
           "mongo"
         ],
@@ -133,7 +133,7 @@ db.Student
         photo: "https://ca.slack-edge.com/TMU2T4ECF-UMPL144FM-89deb0011ed2-512",
         level: "advanced",
         status: 1,
-        interests: [
+        categories: [
           "Javascript",
           "MySQL",
           "CSS"
@@ -150,7 +150,7 @@ db.Student
         photo: "https://ca.slack-edge.com/TMU2T4ECF-UN13LV7HT-9175ac33b69b-512",
         level: "advanced",
         status: 1,
-        interests: [
+        categories: [
           "Javascript",
           "Jquery",
           "HTML",
@@ -171,7 +171,7 @@ db.Student
     photo: "https://ca.slack-edge.com/TMU2T4ECF-UMYCUP8E5-f99c481e727c-512",
     level: "beginner",
     status: 1,
-    interests: [
+    categories: [
       "javacript", 
       "react"
     ],

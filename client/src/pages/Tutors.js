@@ -15,11 +15,11 @@ class Tutors extends Component {
       };
     
       componentDidMount() {
-        this.loadStudents(); // what is this in this case? why not just loadbooks()?
+        this.loadStudents(); 
       }
     
       loadStudents = () => {
-        API.getStudents()
+        API.getStudents({status: 1})
           .then(res =>
             this.setState({ students: res.data })
           )
@@ -66,7 +66,7 @@ class Tutors extends Component {
                               first={student.first}
                               last={student.last}
                               photo={student.photo}
-                              interests={student.interests.join(", ")}
+                              categories={student.categories.join(", ")}
                               bio={student.bio}
                               level={student.level}
                               button={"Contact"}                            

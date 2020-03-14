@@ -114,12 +114,38 @@ form.search button[type="submit"] {
     border-radius: 5px !important;
 }
 
+.login-button, .register-submit, .save-button {
+    font-family:"Mark","Avenir","Helvetica","Arial",sans-serif;
+    color: white;
+    font-size: 13px !important;
+    border-radius: 20px 20px 20px 20px !important;
+    padding: 5px 15px 5px 15px !important;
+    margin-right: 5px;
+    display: flex;
+}
+
 .webinars-title {
     text-align: left;
 }
 
+.login-signup-password-field {
+    border-radius: 20px 0 0 20px !important;
+    width: 300px !important;
+    display: inline-flex !important;
+}
+
+.login-signup-email-field {
+    border-radius: 20px 20px 20px 20px !important;
+    width: 300px !important;
+    display: inline-block !important;
+}
+
+.div-test {
+    display: flex;
+}
+
 @media screen and (min-width: 1420px) {
     body {
-      background-size: 2000px;
+      background-size: 1860px;
     }
   }
