@@ -74,6 +74,11 @@ render() {
             <div className="nav-link">Find tutors</div>
           </li>
           </Link>
+          <Link push to="/tutors">
+          <li className="nav-item">
+            <div className="nav-link">Help students</div>
+          </li>
+          </Link>
           <Link to={"/account/" + loggedInUser.id}>
           <li className="nav-item">
             <div className="nav-link">My account</div>
