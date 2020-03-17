@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../AuthService";
-import API from "../../utils/API";
 import "./navbar.css";
 
 let loggedInUser;
@@ -15,17 +14,17 @@ class Nav extends React.Component {
     userName: ""
   }
 
-getUserInfo = () => {
-    API.getStudent(loggedInUser.id)
-    .then(res => this.setState({ 
-      userName: res.data.first, 
+// getUserInfo = () => {
+//     API.getStudent(loggedInUser.id)
+//     .then(res => this.setState({ 
+//       userName: res.data.first, 
       
-    })).then(console.log("USERNAME ", this.state.userName))
-    .catch(err => console.log(err));
-    // console.log("USERENAME", loggedInUserName[0])
-    // return loggedInUserName;
-    // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
-  }
+//     })).then(console.log("USERNAME ", this.state.userName))
+//     .catch(err => console.log(err));
+//     // console.log("USERENAME", loggedInUserName[0])
+//     // return loggedInUserName;
+//     // console.log("LOGGED IN USER***", this.state.loggedInUser.id)
+//   }
 
 render() {
   const Auth = new AuthService();
@@ -56,7 +55,8 @@ render() {
       // console.log("NAME ", newUser.name)
       // console.log("NEW NEW LOGGED IN USER ", loggedInUser)
       return (
-   
+        
+        
       <div className="navbar-buttons col-7">
         <ul className="navbar-nav">
           <Link push to="/videos">
@@ -64,14 +64,19 @@ render() {
             <div className="nav-link">Webinars</div>
           </li>
           </Link>
-          {/* <Link push to="/tutors">
+          <Link push to="/">
           <li className="nav-item">
-            <div className="nav-link">Job leads</div>
+            <div className="nav-link">Ask the class</div>
           </li>
-          </Link> */}
+          </Link>
           <Link push to="/students">
           <li className="nav-item">
             <div className="nav-link">Find tutors</div>
+          </li>
+          </Link>
+          <Link push to="/tutors">
+          <li className="nav-item">
+            <div className="nav-link">Help students</div>
           </li>
           </Link>
           <Link to={"/account/" + loggedInUser.id}>
@@ -99,11 +104,11 @@ render() {
         <div className="nav-link">Webinars</div>
       </li>
       </Link>
-      {/* <Link push to="/tutors">
-      <li className="nav-item">
-        <div className="nav-link">Job leads</div>
-      </li>
-      </Link> */}
+      <Link push to="/">
+        <li className="nav-item">
+          <div className="nav-link">Ask the class</div>
+        </li>
+      </Link>
       <Link push to="/students">
       <li className="nav-item">
         <div className="nav-link">Find tutors</div>

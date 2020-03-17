@@ -30,7 +30,7 @@ class AccountInfo extends Component {
     render() {
       return (
         <div className="box">
-            <h2>Create your account</h2>
+            <h2>Create your profile</h2>
         <form className="form-group">
         <Input 
             name="first" 

@@ -4,6 +4,8 @@ import { FormBtn } from "../Form"
 import "./messageCard.css";
 
 function MessageCard(props) {
+
+  console.log("MESSAGES ", props.messages)
   
   return (
     <div>
@@ -19,6 +21,7 @@ function MessageCard(props) {
                       <div className="name">Name: <span className="plain">{message.name}</span></div>
                       <div className="name">Title: <span className="plain">{message.title}</span></div>
                       <div className="name">Message: <span className="plain">{message.message}</span></div>
+                      <div className="name">Date: <span className="plain">{message.date}</span></div>
                       <FormBtn button={"Reply"} className="btn btn-secondary reply-archive" /> <FormBtn button={"Archive"} className="btn btn-secondary reply-archive" />
                   </ListItem>
                   

@@ -7,6 +7,8 @@ import { TextArea, FormBtn, Input } from "../components/Form";
 import StarRatings from "../components/StarRatings";
 import BlankStar from "./star-blank.jpg";
 import FilledStar from "./star-single.jpg";
+import { Button, Modal } from 'react-bootstrap';
+
 import "./style.css";
 
 class TutorDetail extends Component {
@@ -17,9 +19,12 @@ class TutorDetail extends Component {
     student: {},
     button: "Contact",
     reviewsOn: -1,
-    activeStudent: "Bikal T.",
+    messagesOn: -1,
+    activeStudent: "Achille B.",
     reviewTitle: "",
     reviewBody: "",
+    messageTitle: "",
+    messageBody: "",
     reviews: "",
     rating: "",
     stars: [
@@ -54,24 +59,36 @@ starClick = (event) => {
       }))
       .catch(err => console.log(err));
       console.log("STATE", this.state);
-      // API.getStudent(this.state.loggedInUser.id)
-      // .then(res => this.setState({ 
-      //   student: res.data,
-      //   activeStudent: res.data.first + " " + res.data.last.charAt(0) 
-      // }))
-      // .catch(err => console.log(err));
-
-  
   }
 
   toggleReviews = event => {
-    console.log("TUTOR", this.state.tutor.expertise.join(", "))
+    console.log("TUTOR", this.state.tutor.categories.join(", "))
 
     event.preventDefault();
     this.setState({
-      reviewsOn: this.state.reviewsOn *= -1
+      reviewsOn: this.state.reviewsOn *= -1,
+      messagesOn: -1
     });
   };
+
+  toggleMessages = event => {
+    event.preventDefault();
+    this.setState({
+      messagesOn: this.state.messagesOn *= -1,
+      reviewsOn: -1
+    });
+  };
+
+
+handleClose = (e) => {
+  e.preventDefault();
+  this.setState({ show: false });
+}
+
+handleShow = (e) => {
+  e.preventDefault();
+  this.setState({ show: true });
+}
 
   submitReview = event => {
     event.preventDefault();
@@ -97,6 +114,24 @@ starClick = (event) => {
       }))
       .catch(err => console.log(err));
   }
+  
+  submitMessage = event => {
+    event.preventDefault();
+    let newMessage = {
+      id: this.state.id,
+      name: this.state.activeStudent,
+      title: this.state.messageTitle,
+      message: this.state.messageBody,
+      date: Date(Date.now())
+    }
+    API.saveStudentMessage(newMessage)
+    .then(res => {
+      if (res.data.status === "error") {
+        throw new Error(res.data.message);
+      }
+    }).then(window.location.reload(true))
+    .catch(err => this.setState({ error: err.message }));
+  }
 
   handleInputChange = event => {
     console.log(event.target.value);
@@ -121,7 +156,7 @@ starClick = (event) => {
                first={this.state.tutor.first}
                last={this.state.tutor.last}
                photo={this.state.tutor.photo}
-               expertise={this.state.tutor.expertise}
+               categories={this.state.tutor.categories}
                bio={this.state.tutor.bio}
                button={this.state.button} 
                reviews={this.state.tutor.reviews}              
@@ -131,6 +166,13 @@ starClick = (event) => {
               className={"btn btn-success review-button col-3"}
               onClick={e => this.toggleReviews(e)}
             />
+            <div>
+             <FormBtn 
+              button={"Send a message"}
+              className={"btn btn-secondary review-button col-3"}
+              onClick={e => this.toggleMessages(e)}
+            />
+            </div>
             {this.state.reviewsOn > 0 ? (
               <div>
               <p className="reviewer-name">{this.state.activeStudent}</p>           
@@ -162,6 +204,60 @@ starClick = (event) => {
             ) : (
               <h3></h3>
             )}
+
+              {this.state.messagesOn > 0 ? (
+              <div>
+              <p className="reviewer-name">{this.state.activeStudent}</p>
+              <Input
+                name="messageTitle"
+                placeholder="Title"
+                title={this.state.messageTitle}
+                onChange={e => this.handleInputChange(e)}
+              />
+
+              <TextArea 
+                name="messageBody"
+                rows={5}
+                message={this.state.messageBody}
+                placeholder={"Message here"}
+                onChange={e => this.handleInputChange(e)}
+              />
+
+              <Modal show={this.state.show} onHide={this.handleClose}>
+                  {/* <Modal.Header closeButton>
+                      <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header> */}
+                  <Modal.Body>Your message has been sent</Modal.Body>
+                  <Modal.Footer>
+                      <Button variant="secondary" 
+                          onClick={async (e) => {
+                              await this.handleClose(e);
+                              await this.toggleMessages(e);
+                          }}>
+                          Close
+                      </Button>
+                      {/* <Button variant="primary" onClick={this.handleClose}>
+                          Save Changes
+                      </Button> */}
+                  </Modal.Footer>
+              </Modal>
+
+              <FormBtn 
+                button={"Submit"}
+                className={"btn btn-danger message-submit-button"}
+                onClick={async (e) => 
+                    {
+                        await this.submitMessage(e);
+                        await this.handleShow(e);
+                    }}
+              />
+              
+              </div>
+            ) : (
+              <h3></h3>
+            )}      
+
+
             <ReviewCard 
               reviews={this.state.reviews}
               first={this.state.tutor.first}

@@ -32,7 +32,7 @@ class AccountDashboard extends Component {
         messages: res.data.messages 
       }))
       .catch(err => console.log(err));
-      console.log("LOGGED IN USER***", this.state.loggedInUser.id)
+      console.log("LOGGED IN USER***", this.state.student)
   }
 
   handleInputChange = event => {
@@ -52,16 +52,17 @@ class AccountDashboard extends Component {
               {/* <List> */}
               
               <div className="box list-overflow-container" style={{margin: "0 10% 0 10%"}}>
-              <h3 class="dashboard-title">YOUR DASHBOARD</h3>
+              <h3 className="dashboard-title">YOUR DASHBOARD</h3>
             <StudentCard 
                first={this.state.student.first}
                last={this.state.student.last}
                photo={this.state.student.photo}
-               interests={this.state.student.interests}
+               categories={this.state.student.categories}
                bio={this.state.student.bio}
                button={this.state.button} 
                level={this.state.student.level}
-               messages={this.state.student.messages}              
+               messages={this.state.student.messages}  
+               status={this.state.student.status}            
             />
             {/* <FormBtn 
               button={"Leave a message"}
