@@ -42,7 +42,7 @@ function ReviewCard(props) {
                 {props.reviews.map(review => (
                   
                   <ListItem key={review.name}>
-                      <div className="name">Name: <span className="plain">{review.name}</span></div>
+                      <div className="name">Name: <span className="plain">{review.reviewer}</span></div>
                       <div className="name">Title: <span className="plain">{review.title}</span></div>
                       <div className="name">Review: <span className="plain">{review.review}</span></div>
                       <div className="name">Date: <span className="plain">{review.date}</span></div>

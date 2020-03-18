@@ -55,7 +55,7 @@ form.search button[type="submit"] {
     border-radius: 20px 20px 20px 20px !important;
 }
 
-.review-submit-button {
+.review-submit-button, .message-submit-button {
     width: 150px;
     Font-family: "Mark","Avenir","Helvetica","Arial",sans-serif;
     font-size: 10px;
