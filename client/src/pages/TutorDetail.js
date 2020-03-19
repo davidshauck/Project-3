@@ -8,8 +8,10 @@ import StarRatings from "../components/StarRatings";
 import BlankStar from "./star-blank.jpg";
 import FilledStar from "./star-single.jpg";
 import { Button, Modal } from 'react-bootstrap';
-
+import decode from "jwt-decode";
 import "./style.css";
+
+let decoded;
 
 class TutorDetail extends Component {
   state = {
@@ -20,7 +22,10 @@ class TutorDetail extends Component {
     button: "Contact",
     reviewsOn: -1,
     messagesOn: -1,
-    activeStudent: "Achille B.",
+    // activeStudent: "Achille B.",
+    // activeStudentId: "",
+    messageName: "",
+    reviewName: "",
     reviewTitle: "",
     reviewBody: "",
     messageTitle: "",
@@ -52,6 +57,14 @@ starClick = (event) => {
 }
 
   componentDidMount() {
+    // const token = this.getToken();
+
+    // decoded = decode(token);
+    // console.log("DECODED2", decoded)
+    //         this.setState({
+    //           activeStudentId: decoded
+    //         });
+    //         console.log("DECODED STATE", this.state)
       API.getTutor(this.props.match.params.id)
       .then(res => this.setState({ 
         tutor: res.data, 
@@ -59,6 +72,11 @@ starClick = (event) => {
       }))
       .catch(err => console.log(err));
       console.log("STATE", this.state);
+  }
+
+  getToken() {
+    // Retrieves the user token from localStorage
+    return localStorage.getItem("id_token");
   }
 
   toggleReviews = event => {
@@ -94,7 +112,8 @@ handleShow = (e) => {
     event.preventDefault();
     let newReview = {
       id: this.state.id,
-      name: this.state.activeStudent,
+      by: this.activeStudentId,
+      reviewer: this.state.reviewName,
       title: this.state.reviewTitle,
       review: this.state.reviewBody,
       rating: this.state.rating,
@@ -119,7 +138,8 @@ handleShow = (e) => {
     event.preventDefault();
     let newMessage = {
       id: this.state.id,
-      name: this.state.activeStudent,
+      by: this.state.activeStudentId,
+      messager: this.state.messageName,
       title: this.state.messageTitle,
       message: this.state.messageBody,
       date: Date(Date.now())
@@ -175,7 +195,13 @@ handleShow = (e) => {
             </div>
             {this.state.reviewsOn > 0 ? (
               <div>
-              <p className="reviewer-name">{this.state.activeStudent}</p>           
+              {/* <p className="reviewer-name">{this.state.activeStudent}</p>  */}
+              <Input
+                name="reviewName"
+                placeholder="Name"
+                reviewer={this.state.reviewName}
+                onChange={e => this.handleInputChange(e)}
+              />          
               <Input
                 name="reviewTitle"
                 placeholder="Title"
@@ -207,7 +233,13 @@ handleShow = (e) => {
 
               {this.state.messagesOn > 0 ? (
               <div>
-              <p className="reviewer-name">{this.state.activeStudent}</p>
+              {/* <p className="reviewer-name">{this.state.activeStudent}</p> */}
+              <Input
+                name="messageName"
+                placeholder="Name"
+                messager={this.state.messageName}
+                onChange={e => this.handleInputChange(e)}
+              />
               <Input
                 name="messageTitle"
                 placeholder="Title"

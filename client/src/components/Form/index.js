@@ -10,7 +10,7 @@ export * from "./Label";
 // This file exports the Input, TextArea, and FormBtn components
 
 export function Input(props) {
-  return <input className={"form-control " + props.inputClass} {...props} />;
+  return <input className={"form-control"} {...props} />;
 }
 
 export function TextArea(props) {

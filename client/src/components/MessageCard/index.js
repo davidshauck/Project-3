@@ -18,7 +18,7 @@ function MessageCard(props) {
                 {props.messages.map(message => (
                   
                   <ListItem key={message.name}>
-                      <div className="name">Name: <span className="plain">{message.name}</span></div>
+                      <div className="name">Name: <span className="plain">{message.messager}</span></div>
                       <div className="name">Title: <span className="plain">{message.title}</span></div>
                       <div className="name">Message: <span className="plain">{message.message}</span></div>
                       <div className="name">Date: <span className="plain">{message.date}</span></div>
